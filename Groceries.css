@@ -1,6 +1,14 @@
 * {margin:0; padding:0}
 
-#wrapper {width:300px; margin:50px auto}
+#shoppinglistcontents, #login {
+	background-color: rgba(0,0,0,.7); 
+	height:100%;
+	width:80%;
+	margin:auto;
+	padding: 0;
+	
+	border:1px solid black;
+}
 .form {float:left; padding:0 10px 10px 10px; background:#f3f3f3; border:2px solid #cfcfcf}
 .form label {float:left; width:100px; padding:10px 10px 0 0; font-weight:bold}
 .form select {float:left; width:146px; margin-top:10px}
