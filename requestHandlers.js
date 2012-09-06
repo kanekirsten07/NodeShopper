@@ -1,4 +1,4 @@
-function start(response) {
+function addgroceries(response) {
 
 console.log("Request handler 'start' was called.");
 var fs = require('fs');
@@ -21,18 +21,11 @@ try {
 
 }
 
-/*
-function authenticate(response) 
-{
-console.log("Request handler authenticate was called.");
-response.writeHead(500, {'Content-Type':'text/html'});
-	response.end('authenticated');
-}
-*/
 
-/*
-function login(response) {
-	console.log("request handler login was called.");
+
+
+function start(response) {
+	console.log("Request handler 'login' was called.");
 var fs = require('fs');
 
 try {
@@ -50,8 +43,9 @@ try {
 	response.writeHead(500,{'Content-Type':'text/plain'});
 	response.end('Internal server error');
 } 
+
 }
-*/
+
 
 function style(response)
 {
@@ -109,5 +103,6 @@ response.end();
 }
 
 exports.start = start;
-//exports.login = login;
+exports.addgroceries = addgroceries;
+exports.style = style;
 exports.postGroceries = postGroceries;

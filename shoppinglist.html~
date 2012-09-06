@@ -7,7 +7,7 @@
 
 <div id="shoppinglistcontents">
 <form name="shoppinglist" onsubmit = "return validateform(this);" action="/postGroceries" method="post"> 
-<input type="text" name="fooditem" id="fooditem"/> <br>
+Item Purchased: <input type="text" name="fooditem" id="fooditem"/> <br>
 Date Purchased (mm/dd/yyyy): <input type="text" id ="datepurchased" name="datepurchased" /><br>
  
  <input type="checkbox" name="taxable" value = "yes"/> Taxable? 
