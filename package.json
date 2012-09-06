@@ -1,0 +1,9 @@
+{
+"name": "Grocery_List",
+"description": "Keeping Track of 1363 Spectrum's Groceries",
+"version": "0.0.1",
+"private":true,
+"dependencies":{
+"express":"3.x"
+}
+}
