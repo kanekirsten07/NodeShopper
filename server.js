@@ -13,8 +13,9 @@ function start(route, handle, response){
 	route(handle,pathname,response, request)
 	
 }
-http.createServer(onRequest).listen(8888);
+var port = process.env.PORT || 8888;
+http.createServer(onRequest).listen(port);
 
-console.log("server has started");
+console.log("server has started. Listening on port " + port);
 }
 exports.start = start;

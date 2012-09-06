@@ -9,11 +9,12 @@ function start(route, handle, response){
 	console.log("Request for" + pathname +" received");
 	request.setEncoding("utf8");
 	
-	Console.log(request.method);
+	console.log(request.method);
 	route(handle,pathname,response, request)
 	
 }
-http.createServer(onRequest).listen(8888);
+var port = process.env.PORT || 8888;
+http.createServer(onRequest).listen(port);
 
 console.log("server has started");
 }
