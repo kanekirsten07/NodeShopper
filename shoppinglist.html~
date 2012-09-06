@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="Groceries.css" />
+<!--<link rel="stylesheet" type="text/css" href="Groceries.css" />-->
 </head>
 
 
 <div id="shoppinglistcontents">
 <form name="shoppinglist" onsubmit = "return validateform(this);" action="/postGroceries" method="post"> 
-<label for="fooditem">Name of Item:</label> <input type="text" name="fooditem" id="fooditem"/> <br>
-Date Purchased (mm/dd/yy): <input type="text" name="datepurchased" /><br>
+<input type="text" name="fooditem" id="fooditem"/> <br>
+Date Purchased (mm/dd/yyyy): <input type="text" id ="datepurchased" name="datepurchased" /><br>
  
  <input type="checkbox" name="taxable" value = "yes"/> Taxable? 
 
@@ -33,14 +33,25 @@ Name of Person who purchased it: <input type="text" name="pname" /> <br>
 function validateform(form) {
 
 	var fooditem= form.fooditem.value;
-	
+	var datepurchased = form.datepurchased.value;
+	var dateregex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 	if(fooditem == null || fooditem =="") {
 	
-	inlineMsg('fooditem', "You must enter a value", 2);
+	inlineMsg('fooditem', "You must enter an item", 2);
 	return false;
-	}else {
-		return true;
 	}
+	if(datepurchased == null || datepurchased =="") {
+	
+	inlineMsg('datepurchased', "You must enter a date", 2);
+	return false;
+	}
+	if(!datepurchased.match(dateregex)){
+	inlineMsg('datepurchased', "You have entered an invalid date format",2);
+	return false;
+	}
+	
+		return true;
+	
 
 
 }
