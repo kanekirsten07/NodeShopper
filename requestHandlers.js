@@ -66,9 +66,24 @@ if(error) {
 });
 }
 
+function addtoDatabase()
+{
+	var pg = require('pg');
+
+	pg.connect(process.env.DATABASE_URL, function(err, client) {
+
+	var query = client.query('SELECT * from your_table');
+
+	query.on('row', function(row) {
+	console.log(JSON.stringify(row));
+
+	});
+	});
+}
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
+addtoDatabase();
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -79,13 +94,25 @@ request.on('end', function() {
 	var post = qs.parse(chunk);
 	response.write(post.fooditem);
 	response.write(post.datepurchased);
-
+	var name = post.pname;
+	
+	if((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten"))
+	{
+		response.write(name);
+	}else
+	{
+	response.write('Unrecognized name');
+	
+	}
+	response.write(post.shared);
 	if(post.taxable == null){
 	response.write("no")
 }else {
 	response.write(post.taxable);
 	
 }
+
+
 
 if(post.payedfor == null){
 	response.write("no")
@@ -101,6 +128,7 @@ response.end();
 
 
 }
+
 
 exports.start = start;
 exports.addgroceries = addgroceries;

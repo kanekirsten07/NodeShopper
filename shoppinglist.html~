@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--<link rel="stylesheet" type="text/css" href="Groceries.css" />-->
+<link rel="stylesheet" type="text/css" href="Groceries.css" />
 </head>
 
 
@@ -16,7 +16,7 @@ Date Purchased (mm/dd/yyyy): <input type="text" id ="datepurchased" name="datepu
 <input type ="checkbox" name="payedfor"/> Paid For: <br>
 Name of Person who purchased it: <input type="text" name="pname" /> <br>
 <select name="shared">
-<option value =""> Select</option>
+Shared? Choose One:<option value =""> Select</option>
 <option value ="confirmshared"> Shared </option>
 <option value ="notshared"> Not Shared </option>
 <option value ="unknown"> Unknown </option>
@@ -34,6 +34,9 @@ function validateform(form) {
 
 	var fooditem= form.fooditem.value;
 	var datepurchased = form.datepurchased.value;
+	var pname = form.pname.value;
+	var shared = form.shared.value;
+	
 	var dateregex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 	if(fooditem == null || fooditem =="") {
 	
@@ -49,6 +52,16 @@ function validateform(form) {
 	inlineMsg('datepurchased', "You have entered an invalid date format",2);
 	return false;
 	}
+	if(pname == null || pname == "") {
+	inlineMsg('pname', 'You must enter your name', 2);
+	return false;
+	}
+	if(shared == null || shared ==="") {
+	inlineMsg('shared', 'You must select an option', 2);
+	return false;
+	}
+	
+	
 	
 		return true;
 	
