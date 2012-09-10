@@ -123,7 +123,7 @@ console.log('connecting to database');
 	console.log('connection success');
 	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datebought, taxable, paidfor, name,shared] , function(err, result) {
 	if(err) {
-	response.write(err);
+	console.log(err);
 	}
 	response.end();
 	
