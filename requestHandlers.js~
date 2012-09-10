@@ -155,7 +155,7 @@ client.connect();
 var query = client.query("SELECT * FROM groceries");
 
 query.on('row', function(row) {
-console.log(row);
+response.write(row);
 });
 
 query.on('end', function() {
