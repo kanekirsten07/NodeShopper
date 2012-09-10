@@ -144,23 +144,6 @@ response.end();
 	response.write("There doesn't appear to be anything here");
 }
 
-var pg = require('pg');
-	var connectionString = process.env.DATABASE_URL;
-
-	var client = new pg.Client(connectionString);
-	client.connect();
-
-var query = client.query("SELECT * FROM groceries");
-
-query.on('row', function(row) {
-	console.log('selecting');
-	console.log(row);
-});
-
-query.on('end', function() {	
-	console.log('ending');
-	client.end();
-	});
 
 
 
@@ -169,6 +152,6 @@ query.on('end', function() {
 
 
 exports.start = start;
-exports.addgroceries = addgroceries;
+exports.addgroceries 
 exports.style = style;
 exports.postGroceries = postGroceries;
