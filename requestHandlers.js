@@ -149,7 +149,7 @@ var pg = require('pg').native , connectionString = process.env.DATABASE_URL, cli
 client = new pg.Client(connectionString);
 client.connect();
 
-query = client.query('select * from groceries');
+query = client.query('select * from your_table');
 query.on('row', function(result) {
 	response.write(result);
 
