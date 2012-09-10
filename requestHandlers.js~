@@ -158,7 +158,7 @@ query.on('row', function(row) {
 });
 
 query.on('end', function() {
-	clieint.end();
+	client.end();
 	});
 
 }
