@@ -152,17 +152,17 @@ var pg = require('pg');
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
 	console.log(err);
-	console.log('connection error');
+	response.write('connection error');
 	}
 	else {
-	console.log('connection success');
+	response.write('connection success');
 	client.query('SELECT * FROM groceries', function(err, result) {
 	if(err) {
 	console.log(err);
 	}
 	else {
 	for(var i=0; i<result.rows.length; i++) {
-	console.log(result.rows[i]);
+	response.write(result.rows[i]);
 	}
 	response.end();
 	}
@@ -177,6 +177,6 @@ var pg = require('pg');
 
 
 exports.start = start;
-exports.addgroceries = addgroceries;
+
 exports.style = style;
 exports.postGroceries = postGroceries;
