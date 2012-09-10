@@ -65,23 +65,22 @@ if(error) {
 }
 });
 }
-
+/*
 
 function addtoDatabase(response)
 {
+	var pg = require('pg');
+	var connectionString = process.env.DATABASE_URL || "postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
 
-var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
-
-console.log('connecting to database');
+	response.write('connecting to database');
 	console.log(connectionString);
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
 	console.log(err);
-	console.log('connection error');
+	response.write('connection error');
 	}
 	else {
-	console.log('connection success');
+	response.write('connection success');
 	client.query('SELECT name FROM groceries', function(err, result) {
 	if(err) {
 	console.log(err);
@@ -97,7 +96,7 @@ console.log('connecting to database');
 }
 });
 }
-
+*/
 
 function postGroceries(response, request)
 {
@@ -146,7 +145,32 @@ response.end();
 }
 */
 
+var pg = require('pg');
+var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
+console.log('connecting to database');
+	console.log(connectionString);
+	pg.connect(connectionString, function(err,client) {
+	if(err) {
+	console.log(err);
+	console.log('connection error');
+	}
+	else {
+	console.log('connection success');
+	client.query('SELECT name FROM groceries', function(err, result) {
+	if(err) {
+	console.log(err);
+	}
+	else {
+	for(var i=0; i<result.rows.length; i++) {
+	response.write(result.rows[i].name);
+	}
+	response.end();
+	}
+
+});
+}
+});
 
 
 
