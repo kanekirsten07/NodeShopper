@@ -1,7 +1,11 @@
 * {margin:0; padding:0}
+body {
+background-image:url('sakura.jpg');
 
+
+}
 #shoppinglistcontents, #login {
-	background-color: rgba(0,0,0,.7); 
+	background-color: rgba(205,205,201,.7); 
 	height:100%;
 	width:80%;
 	margin:auto;

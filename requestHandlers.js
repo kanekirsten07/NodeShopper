@@ -101,7 +101,7 @@ function addtoDatabase(response)
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-/*
+
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -110,32 +110,25 @@ if(request.method == 'POST') {
 });
 request.on('end', function() {
 	var post = qs.parse(chunk);
-	response.write(post.fooditem);
-	response.write(post.datepurchased);
+	var fooditem = post.fooditem;
+	var datepurchased = post.datepurchased);
 	var name = post.pname;
 	
-	if((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten"))
-	{
-		response.write(name);
-	}else
-	{
-	response.write('Unrecognized name');
 	
-	}
-	response.write(post.shared);
+	var shared = post.shared;
 	if(post.taxable == null){
-	response.write("no")
+	var taxable = "no";
 }else {
-	response.write(post.taxable);
+	var taxable = post.taxable;
 	
 }
 
 
 
 if(post.payedfor == null){
-	response.write("no")
+	var paidfor = "no";
 }else {
-	response.write(post.payedfor);
+	var paidfor = post.payedfor;
 	
 }
 response.end();
@@ -143,7 +136,7 @@ response.end();
 }else {
 	response.write("There doesn't appear to be anything here");
 }
-*/
+
 
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
@@ -157,7 +150,7 @@ console.log('connecting to database');
 	}
 	else {
 	console.log('connection success');
-	client.query('SELECT name FROM groceries', function(err, result) {
+	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datepurchasd, taxable, paidfor, name,shared] , function(err, result) {
 	if(err) {
 	console.log(err);
 	}

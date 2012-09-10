@@ -1,5 +1,9 @@
 * {margin:0; padding:0}
+body {
+background-image:url('sakura.jpg');
 
+
+}
 #shoppinglistcontents, #login {
 	background-color: rgba(0,0,0,.7); 
 	height:100%;
@@ -14,5 +18,5 @@
 .form select {float:left; width:146px; margin-top:10px}
 .form input {float:left; margin-top:10px}
 .form .submit {clear:both}
-#msg {display:none; position:absolute; z-index:200; left center no-repeat; }
-#msgcontent {display:block; background:#a0a0a0; border:2px solid #000000; border-left:none; padding:5px; min-width:150px; max-width:250px}
+#msg {display:none; position:absolute; z-index:200; left center no-repeat; padding-left:7px}
+#msgcontent {display:block; background:#a0a0a0; border:2px solid #000000;  padding:5px; min-width:150px; max-width:250px}
