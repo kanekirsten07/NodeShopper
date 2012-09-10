@@ -148,7 +148,7 @@ var pg = require('pg');
 	var connectionString = process.env.DATABASE_URL || "postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
 
 	response.write('connecting to database');
-	
+	response.write(connectionString);
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
 	console.log(err);
