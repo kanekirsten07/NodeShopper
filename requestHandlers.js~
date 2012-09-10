@@ -124,6 +124,10 @@ console.log('connecting to database');
 	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datebought, taxable, paidfor, name,shared] , function(err, result) {
 	if(err) {
 	console.log(err);
+	console.log("error, you halfwit");
+	}else 
+	{
+	console.log("success");
 	}
 	response.end();
 	
