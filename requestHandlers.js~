@@ -145,30 +145,17 @@ response.end();
 }
 
 var pg = require('pg');
-	var connectionString = process.env.DATABASE_URL;
 
-	response.write('connecting to database');
-	response.write(connectionString);
-	pg.connect(connectionString, function(err,client) {
-	if(err) {
-	console.log(err);
-	response.write('connection error');
-	}
-	else {
-	response.write('connection success');
-	client.query('SELECT name FROM groceries', function(err, result) {
-	if(err) {
-	console.log(err);
-	}
-	else {
-	for(var i=0; i<result.rows.length; i++) {
-	response.write(result.rows[i].name);
-	}
-	response.end();
-	}
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+response.write(process.env.DATABASE_URL);
+var query = clientquery('SELECT * FROM groceries');
+
+query.on('row', function(row) {
+
+response.write(row);
 
 });
-}
+
 });
 
 }
