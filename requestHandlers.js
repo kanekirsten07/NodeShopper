@@ -147,7 +147,7 @@ response.end();
 var pg = require('pg');
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
-response.write(process.env.DATABASE_URL);
+
 var query = clientquery('SELECT * FROM groceries');
 
 query.on('row', function(row) {
