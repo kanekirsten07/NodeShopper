@@ -159,7 +159,7 @@ console.log(row);
 });
 
 query.on('end', function() {
-clientend();
+client.end();
 });
 
 
