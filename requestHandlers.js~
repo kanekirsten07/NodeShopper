@@ -100,7 +100,7 @@ function addtoDatabase(response)
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-addtoDatabase(response);
+
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -140,9 +140,10 @@ if(post.payedfor == null){
 response.end();
 });
 }else {
-	console.log("get the hell out of here");
+	response.write("There doesn't appear to be anything here");
 }
 
+addtoDatabase(response);
 
 }
 
