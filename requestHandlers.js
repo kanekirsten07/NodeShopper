@@ -144,20 +144,21 @@ response.end();
 	response.write("There doesn't appear to be anything here");
 }
 
-var pg = require('pg').native , connectionString = process.env.DATABASE_URL, client, query;
+var pg = require('pg') 
+var connectionString = process.env.DATABASE_URL;
+var client = new pg.Client(connectionString);
 
-client = new pg.Client(connectionString);
+
 client.connect();
 
 query = client.query('SELECT * FROM groceries');
-query.on('row', function(result) {
-	response.write(result);
 
-	if(!result) {
-	response.write('no data found');
-	} else {
-	response.write('data found');
-	}
+query.on('row', function(row) {
+	response.write(row);
+});
+
+query.on('end', function() {
+	clieint.end();
 	});
 
 }
