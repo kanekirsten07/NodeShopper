@@ -102,7 +102,9 @@ function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
 var post, fooditem,datepurchased, name, shared, taxable, paidfor;
+
 var qs = require('querystring');
+
 if(request.method == 'POST') {
 	var chunk = '';
 	request.on('data', function(data) {
@@ -155,11 +157,11 @@ console.log('connecting to database');
 	response.write(err);
 	}
 	response.end();
-	}
+	
 
 });
-}
 });
+
 
 
 
