@@ -121,7 +121,11 @@ console.log('connecting to database');
 	}
 	else {
 	console.log('connection success');
-	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES ($1, $2, $3, $4, $5, $6)', values: [fooditem, datebought, taxable, paidfor, name,shared] , function(err, result) {
+	prepInsert = {
+	text:'INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES ($1, $2, $3, $4, $5, $6)',
+	values: [fooditem, datebought, taxable, paidfor, name,shared]};
+	
+	client.query(prepInsert, function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('error, you halfwit');
