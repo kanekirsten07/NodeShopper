@@ -78,7 +78,7 @@ function addtoDatabase(response)
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
 	console.log(err);
-	console.log('connection error');
+	response.write('connection error');
 	}
 	else {
 	response.write('connection success');
