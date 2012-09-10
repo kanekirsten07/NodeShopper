@@ -69,12 +69,10 @@ if(error) {
 function addtoDatabase(response)
 {
 	var pg = require('pg');
-	var connectionString = process.env.DATABASE_URL;
-
-///"postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
+	var connectionString = process.env.DATABASE_URL || "postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
 
 	console.log('connecting to database');
-	
+	console.log(connectionString);
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
 	console.log(err);
@@ -102,7 +100,7 @@ function addtoDatabase(response)
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-addtoDatabase(response);
+
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -145,6 +143,7 @@ response.end();
 	console.log("get the hell out of here");
 }
 
+addtoDatabase(response);
 
 }
 
