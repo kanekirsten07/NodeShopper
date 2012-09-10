@@ -111,7 +111,7 @@ if(request.method == 'POST') {
 request.on('end', function() {
 	var post = qs.parse(chunk);
 	var fooditem = post.fooditem;
-	var datepurchased = post.datepurchased);
+	var datepurchased = post.datepurchased;
 	var name = post.pname;
 	
 	

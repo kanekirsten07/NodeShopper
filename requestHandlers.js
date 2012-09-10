@@ -101,7 +101,7 @@ function addtoDatabase(response)
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-
+var post, fooditem,datepurchased, name, shared, taxable, paidfor;
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -109,26 +109,26 @@ if(request.method == 'POST') {
 	chunk += data;
 });
 request.on('end', function() {
-	var post = qs.parse(chunk);
-	var fooditem = post.fooditem;
-	var datepurchased = post.datepurchased;
-	var name = post.pname;
+	post = qs.parse(chunk);
+	fooditem = post.fooditem;
+	 datepurchased = post.datepurchased;
+	 name = post.pname;
 	
 	
-	var shared = post.shared;
+	 shared = post.shared;
 	if(post.taxable == null){
-	var taxable = "no";
+	 taxable = "no";
 }else {
-	var taxable = post.taxable;
+	taxable = post.taxable;
 	
 }
 
 
 
 if(post.payedfor == null){
-	var paidfor = "no";
+	 paidfor = "no";
 }else {
-	var paidfor = post.payedfor;
+	 paidfor = post.payedfor;
 	
 }
 response.end();
