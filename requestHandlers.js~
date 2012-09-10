@@ -177,6 +177,6 @@ var pg = require('pg');
 
 
 exports.start = start;
-exports.addgroceries = addgroceries;
+
 exports.style = style;
 exports.postGroceries = postGroceries;
