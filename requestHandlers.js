@@ -102,7 +102,9 @@ function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
 var post, fooditem,datepurchased, name, shared, taxable, paidfor;
+
 var qs = require('querystring');
+
 if(request.method == 'POST') {
 	var chunk = '';
 	request.on('data', function(data) {
@@ -152,11 +154,7 @@ console.log('connecting to database');
 	console.log('connection success');
 	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datepurchasd, taxable, paidfor, name,shared] , function(err, result) {
 	if(err) {
-	console.log(err);
-	}
-	else {
-	for(var i=0; i<result.rows.length; i++) {
-	response.write(result.rows[i].name);
+	response.write(err);
 	}
 	response.end();
 	}
