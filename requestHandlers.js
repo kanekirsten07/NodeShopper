@@ -146,7 +146,7 @@ response.end();
 
 var pg = require('pg');
 
-pg.connect(process.env.DATABASE_URL, function(err, client) {
+pg.connect(process.env.HEROKU_POSTGRESQL_GOLD_URL, function(err, client) {
 	var query = client.query('SELECT * FROM groceries');
 
 query.on('row', function(row) {
