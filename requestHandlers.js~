@@ -101,7 +101,7 @@ function addtoDatabase(response)
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-
+/*
 var qs = require('querystring');
 if(request.method == 'POST') {
 	var chunk = '';
@@ -143,32 +143,32 @@ response.end();
 }else {
 	response.write("There doesn't appear to be anything here");
 }
-/*
-var pg = require('pg');
-	var connectionString = process.env.DATABASE_URL
+*/
 
-	var client = new pg.Client(connectionString);
-	client.connect();
+var pg = require('pg');
+var conString = process.env.DATABASE_URL;
+console.log(conString);
+
+var client = new pg.Client(conString);
+client.connect();
 
 var query = client.query("SELECT * FROM groceries");
 
 query.on('row', function(row) {
-	console.log('selecting');
-	console.log(row);
+console.log(row);
 });
 
-query.on('end', function() {	
-	console.log('ending');
-	client.end();
-	});
+query.on('end', function() {
+clientend();
+});
 
-*/
+
 
 
 }
 
 
 exports.start = start;
-exports.addgroceries = addgroceries;
+exports.addgroceries  = addgroceries;
 exports.style = style;
 exports.postGroceries = postGroceries;
