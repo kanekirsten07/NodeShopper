@@ -113,7 +113,7 @@ if(request.method == 'POST') {
 request.on('end', function() {
 	post = qs.parse(chunk);
 	fooditem = post.fooditem;
-	 datepurchased = post.datepurchased;
+	 datebought = post.datepurchased;
 	 name = post.pname;
 	
 	
@@ -152,7 +152,7 @@ console.log('connecting to database');
 	}
 	else {
 	console.log('connection success');
-	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datepurchasd, taxable, paidfor, name,shared] , function(err, result) {
+	client.query('INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES (nameofitem=?, datepurchased=?, taxable=?, paidfor=?, purchasername =?, shared=?)', [fooditem, datebought, taxable, paidfor, name,shared] , function(err, result) {
 	if(err) {
 	response.write(err);
 	}
