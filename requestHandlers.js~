@@ -150,7 +150,7 @@ pg.connect("postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168
 	var query = client.query('SELECT * FROM groceries');
 
 query.on('row', function(row) {
-	console.log(JSON.stringify(row));
+	response.write(JSON.stringify(row));
 	});
 	});
 

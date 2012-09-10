@@ -146,7 +146,7 @@ response.end();
 
 var pg = require('pg');
 
-pg.connect("postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli", function(err, client) {
+pg.connect(process.env.DATABASE_URL, function(err, client) {
 	var query = client.query('SELECT * FROM groceries');
 
 query.on('row', function(row) {
