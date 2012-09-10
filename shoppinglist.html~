@@ -37,7 +37,8 @@ function validateform(form) {
 	var pname = form.pname.value;
 	var shared = form.shared.value;
 	
-	//var dateregex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+	
+	
 	if(fooditem == null || fooditem =="") {
 	
 	inlineMsg('fooditem', "You must enter an item", 2);
@@ -48,7 +49,7 @@ function validateform(form) {
 	inlineMsg('datepurchased', "You must enter a date", 2);
 	return false;
 	}
-	if(!datepurchased.match(dateregex)){
+	if(!isValidDate(datepurchased){
 	inlineMsg('datepurchased', "You have entered an invalid date format",2);
 	return false;
 	}
@@ -68,6 +69,20 @@ function validateform(form) {
 
 
 }
+
+function isValidDate(date)
+{
+    var matches = /^(\d{2})[-\/](\d{2})[-\/](\d{4})$/.exec(date);
+    if (matches == null) return false;
+    var d = matches[2];
+    var m = matches[1] - 1;
+    var y = matches[3];
+    var composedDate = new Date(y, m, d);
+    return composedDate.getDate() == d &&
+            composedDate.getMonth() == m &&
+            composedDate.getFullYear() == y;
+}
+
 
 // START OF MESSAGE SCRIPT //
 
