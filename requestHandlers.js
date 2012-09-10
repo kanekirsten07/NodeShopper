@@ -145,14 +145,33 @@ response.end();
 }
 
 var pg = require('pg');
+	var connectionString = process.env.DATABASE_URL || "postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
 
-pg.connect(process.env.HEROKU_POSTGRESQL_GOLD_URL, function(err, client) {
-	var query = client.query('SELECT * FROM groceries');
+	console.log('connecting to database');
+	console.log(connectionString);
+	pg.connect(connectionString, function(err,client) {
+	if(err) {
+	console.log(err);
+	console.log('connection error');
+	}
+	else {
+	console.log('connection success');
+	client.query('SELECT * FROM groceries', function(err, result) {
+	if(err) {
+	console.log(err);
+	}
+	else {
+	for(var i=0; i<result.rows.length; i++) {
+	console.log(result.rows[i]);
+	}
+	response.end();
+	}
 
-query.on('row', function(row) {
-	response.write(JSON.stringify(row));
-	});
-	});
+});
+}
+});
+
+
 
 }
 
