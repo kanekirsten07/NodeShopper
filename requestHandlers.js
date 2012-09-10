@@ -69,7 +69,9 @@ if(error) {
 function addtoDatabase(response)
 {
 	var pg = require('pg');
-	var connectionString = "postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
+	var connectionString = process.env.DATABASE_URL;
+
+///"postgres://dttwzaxfdzyvhp:8M-MpF-5vs6siCJa4ZzJ6151qPQ@ec2-107-22-168-239.compute-1.amazonaws.com5432/d94t8jkg4frli";
 
 	console.log('connecting to database');
 	
@@ -79,7 +81,7 @@ function addtoDatabase(response)
 	console.log('connection error');
 	}
 	else {
-	console.log('connection success');
+	response.write('connection success');
 	client.query('SELECT name FROM groceries', function(err, result) {
 	if(err) {
 	console.log(err);
