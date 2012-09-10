@@ -4,7 +4,7 @@
 "version": "0.0.1",
 "private":true,
 "dependencies":{
-"pg": "0.16.5",
+"pg": "0.6.5",
 "express":"latest"
 }
 }
