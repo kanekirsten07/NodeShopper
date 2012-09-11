@@ -173,11 +173,11 @@ console.log('connecting to database');
 	if(err) {
 	console.log(err);
 	console.log('Error');
-	success = false;
+	success = new Boolean(false);
 	}else 
 	{
 	console.log("success");
-	success = true;
+	success = new Boolean(true);
 	}
 	response.end();
 	
