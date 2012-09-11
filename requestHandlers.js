@@ -177,6 +177,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
+	response.write("succes");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
 	response.write('</body></html>');
 	}

@@ -177,6 +177,8 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+	response.write('</body></html>');
 	}
 	response.end();
 	
@@ -193,9 +195,7 @@ console.log('connecting to database');
 }
 
 
-function viewsuccess(response) {
-	
-}
+
 
 function backgroundimage (response)
 {
