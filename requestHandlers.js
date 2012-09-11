@@ -185,6 +185,7 @@ console.log('connecting to database');
 });
 
 response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+response.write('<div id="success"><h1> Success!</h1><h3> You have placed an item in the database. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Another Item"/></form></div>');
 response.write('</body></html>');
 response.end();
 
