@@ -187,7 +187,7 @@ console.log('connecting to database');
 });
 
 
-
+console.log('Reading HTML');
 var fs = require('fs');
 
 try {
