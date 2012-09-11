@@ -185,7 +185,7 @@ console.log('connecting to database');
 });
 }
 });
-console.log(success);
+
 
 
 response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
