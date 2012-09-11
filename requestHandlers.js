@@ -113,7 +113,7 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-var post, fooditem,datebought, name, shared, taxable, paidfor;
+var post, fooditem,datebought, name, shared, taxable, paidfor, success;
 
 var qs = require('querystring');
 
@@ -172,10 +172,12 @@ console.log('connecting to database');
 	client.query(prepInsert, function(err, result) {
 	if(err) {
 	console.log(err);
-	console.log('error, you halfwit');
+	console.log('Error');
+	success = false;
 	}else 
 	{
 	console.log("success");
+	success = true;
 	}
 	response.end();
 	
@@ -184,7 +186,26 @@ console.log('connecting to database');
 }
 });
 
+if(success)
+{
+var fs = require('fs');
 
+try {
+ fs.readFile('./postgroceries.html', function(error,html){
+	if(error){
+	console.log(error);
+	response.writeHead(500, {'Content-Type':'text/html'});
+	response.end('Internal Server error');
+	}else {
+		response.writeHead(200,{'Content-Type':'text/html'});
+	response.end(html, 'utf-8');
+}
+});
+}catch(err){
+	response.writeHead(500,{'Content-Type':'text/plain'});
+	response.end('Internal server error');
+} 
+}
 
 
 
