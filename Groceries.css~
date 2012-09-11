@@ -18,7 +18,7 @@ background-image:url('sakura.jpg');
 #shoppinglistcontents{
 	background-color: rgba(205,205,201,.7); 
 	height:100%;
-	width:80%;
+	width:50%;
 	margin-top:25%;
 	margin-left: auto;
 	margin-right: auto;

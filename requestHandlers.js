@@ -46,11 +46,13 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	response.write('<table>');
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+	response.write('<table id = "groceries">');
 	for(var i =0; i<result.rows.length; i++) {
 	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + "</td></tr>");
 	}
 	response.write('</table>');
+	response.write('</body></html>');
 	}
 	response.end();
 	

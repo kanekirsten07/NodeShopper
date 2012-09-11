@@ -5,6 +5,18 @@ background-image:url('sakura.jpg');
 
 }
 
+#groceries {
+	background-color: rgba(205,205,201,.7); 
+	height:100%;
+	width:50%;
+	margin-top:25%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	
+	border:1px solid black;
+}
+
 #login {
 	background-color: rgba(205,205,201, .7);
 	height:100%;
