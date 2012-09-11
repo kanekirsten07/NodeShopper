@@ -187,8 +187,7 @@ console.log('connecting to database');
 });
 
 console.log(success);
-if(success == true)
-{
+
 var fs = require('fs');
 
 try {
@@ -206,7 +205,7 @@ try {
 	response.writeHead(500,{'Content-Type':'text/plain'});
 	response.end('Internal server error');
 } 
-}
+
 
 
 

@@ -179,14 +179,14 @@ console.log('connecting to database');
 	console.log("success");
 	success = true;
 	}
-	response.end();
+	
 	
 
 });
 }
 });
 
-console.log(success);
+
 
 var fs = require('fs');
 
