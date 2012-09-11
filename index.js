@@ -11,7 +11,7 @@ handle["/postGroceries"] = requestHandlers.postGroceries;
 handle["/authenticate"] = requestHandlers.authenticate;
 handle["/Groceries.css"]= requestHandlers.style;
 handle["/sakura.jpg"] = requestHandlers.backgroundimage;
-handle["/viewgroceries.jpg"] = requestHandlers.viewgroceries;
+handle["/viewgroceries"] = requestHandlers.viewgroceries;
 
 server.start(router.route, handle);
 
