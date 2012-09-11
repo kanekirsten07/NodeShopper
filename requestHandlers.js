@@ -179,13 +179,15 @@ console.log('connecting to database');
 var fs = require('fs');
 
 try {
- fs.readFile('./postgroceries.html', function(error,html){
+ fs.readFile('./success.html', function(error,html){
 	if(error){
 	console.log(error);
 	response.writeHead(500, {'Content-Type':'text/html'});
 	response.end('Internal Server error');
 	}else {
+	console.log('writing');
 		response.writeHead(200,{'Content-Type':'text/html'});
+	response.write(html);
 	response.end(html, 'utf-8');
 }
 });
