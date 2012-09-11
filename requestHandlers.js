@@ -39,7 +39,7 @@ console.log('connecting to database');
 	console.log('connection success');
 	
 	
-	client.query("select nameofitem, datepurchased from septembergroceries" , function(err, result) {
+	client.query("select * from septembergroceries" , function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('SQL Error');
