@@ -123,7 +123,7 @@ console.log('connecting to database');
 	console.log('connection success');
 	prepInsert = {
 	name: 'insert grocery',
-	text:'INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared), VALUES ($1, $2, $3, $4, $5, $6)',
+	text:"INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared) VALUES ($1, $2, $3, $4, $5, $6)",
 	values: [fooditem, datebought, taxable, paidfor, name,shared]};
 	
 	client.query(prepInsert, function(err, result) {
@@ -145,6 +145,15 @@ console.log('connecting to database');
 
 
 
+
+}
+
+function backgroundimage (response)
+{
+fs = require ('fs');
+	var backgroundimage = fs.readFileSync('./sakura.jpg');
+	response.writeHead(200, {'Content-Type': 'image/gif'});
+	response.end(backgroundimage, 'binary');
 
 }
 

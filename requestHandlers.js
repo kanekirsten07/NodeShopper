@@ -148,7 +148,16 @@ console.log('connecting to database');
 
 }
 
+function backgroundimage (response)
+{
+fs = require ('fs');
+	var backgroundimage = fs.readFileSync('./sakura.jpg');
+	response.writeHead(200, {'Content-Type': 'image/gif'});
+	response.end(backgroundimage, 'binary');
 
+}
+
+exports.backgroundimage = backgroundimage;
 exports.start = start;
 exports.addgroceries  = addgroceries;
 exports.style = style;
