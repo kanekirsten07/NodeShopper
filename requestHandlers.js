@@ -186,6 +186,7 @@ console.log('connecting to database');
 }
 });
 
+console.log(success);
 if(success)
 {
 var fs = require('fs');
@@ -207,7 +208,7 @@ try {
 } 
 }
 
-}
+
 
 
 }
