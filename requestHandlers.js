@@ -1,6 +1,6 @@
 function addgroceries(response) {
 
-console.log("Request handler 'addgroceries' was called.");
+console.log("Request handler 'start' was called.");
 var fs = require('fs');
 
 try {
@@ -113,8 +113,7 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-
-var post, fooditem,datebought, name, shared, taxable, paidfor, success;
+var post, fooditem,datebought, name, shared, taxable, paidfor;
 
 var qs = require('querystring');
 
@@ -177,9 +176,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	response.write("succes");
-	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-	response.write('</body></html>');
+	response.write("success");
 	}
 	response.end();
 	
@@ -194,9 +191,6 @@ console.log('connecting to database');
 
 
 }
-
-
-
 
 function backgroundimage (response)
 {
