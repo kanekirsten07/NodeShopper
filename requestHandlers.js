@@ -178,7 +178,6 @@ console.log('connecting to database');
 	{
 	console.log("success");
 	success = true;
-	
 	}
 	
 	
@@ -188,11 +187,25 @@ console.log('connecting to database');
 });
 
 
-console.log('Reading HTML');
-response.write('success');
 
-response.end();
+var fs = require('fs');
 
+try {
+ fs.readFile('./postgroceries.html', function(error,html){
+	if(error){
+	console.log(error);
+	response.writeHead(500, {'Content-Type':'text/html'});
+	response.end('Internal Server error');
+	}else {
+		response.writeHead(200,{'Content-Type':'text/html'});
+	response.write(html)
+	response.end(html, 'utf-8');
+}
+});
+}catch(err){
+	response.writeHead(500,{'Content-Type':'text/plain'});
+	response.end('Internal server error');
+} 
 
 
 

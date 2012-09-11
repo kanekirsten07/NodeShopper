@@ -13,11 +13,11 @@
 <br>
 <br>
 
-<form action="/viewgroceries" method ="get">
+<form id="view"action="/viewgroceries" method ="get">
 <input type="submit" value="View Groceries"/>
 </form>
 
-<form action="/addgroceries" method ="get">
+<form id="add"action="/addgroceries" method ="get">
 <input type="submit" value="Add Another Item"/>
 </form>
 
