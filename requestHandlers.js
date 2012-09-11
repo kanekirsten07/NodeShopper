@@ -113,6 +113,23 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
+var fs = require('fs');
+
+try {
+ fs.readFile('./success.html', function(error,html){
+	if(error){
+	console.log(error);
+	response.writeHead(500, {'Content-Type':'text/html'});
+	response.end('Internal Server error');
+	}else {
+		response.writeHead(200,{'Content-Type':'text/html'});
+	response.end(html, 'utf-8');
+}
+});
+}catch(err){
+	response.writeHead(500,{'Content-Type':'text/plain'});
+	response.end('Internal server error');
+} 
 var post, fooditem,datebought, name, shared, taxable, paidfor, success;
 
 var qs = require('querystring');
@@ -176,25 +193,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-var fs = require('fs');
 
-try {
- fs.readFile('./success.html', function(error,html){
-	if(error){
-	console.log(error);
-	response.writeHead(500, {'Content-Type':'text/html'});
-	response.end('Internal Server error');
-	}else {
-	console.log('writing');
-		response.writeHead(200,{'Content-Type':'text/html'});
-	response.write(html);
-	response.end(html, 'utf-8');
-}
-});
-}catch(err){
-	response.writeHead(500,{'Content-Type':'text/plain'});
-	response.end('Internal server error');
-} 
 	}
 	response.end();
 	
@@ -208,6 +207,11 @@ try {
 
 
 
+}
+
+
+function viewsuccess(response) {
+	
 }
 
 function backgroundimage (response)
