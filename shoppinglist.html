@@ -49,9 +49,11 @@ function validateform(form) {
 	inlineMsg('datepurchased', "You must enter a date", 2);
 	return false;
 	}
-	if(!((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten")))
+	if((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten"))
 	{
-		inlineMsg('pname', 'Unrecognized resident name',2);
+		
+	return true;
+	}else {
 	return false;
 	}
 	
