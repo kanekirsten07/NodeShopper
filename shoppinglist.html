@@ -52,10 +52,11 @@ function validateform(form) {
 	if(!((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten")))
 	{
 		inlineMsg('pname', 'Unrecognized resident name',2);
+	return false;
 	}
 	
 	
-	}
+	
 	if(!isValidDate(datepurchased)){
 	inlineMsg('datepurchased', "You have entered an invalid date format",2);
 	return false;

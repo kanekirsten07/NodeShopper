@@ -52,8 +52,8 @@ function validateform(form) {
 	if(!((name === "Andy") || (name ==="Alex") || (name==="Sacha") || (name ==="Kirsten")))
 	{
 		inlineMsg('pname', 'Unrecognized resident name',2);
-	}else
-	{
+	return false;
+	}
 	
 	
 	}
