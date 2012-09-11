@@ -5,6 +5,10 @@ background-image:url('sakura.jpg');
 
 }
 
+td, tr {
+	border: 1px solid black;
+}
+
 #groceries {
 	background-color: rgba(205,205,201,.7); 
 	height:100%;
