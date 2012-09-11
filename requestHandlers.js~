@@ -173,11 +173,11 @@ console.log('connecting to database');
 	if(err) {
 	console.log(err);
 	console.log('Error');
-	success = new Boolean(false);
+	success = false;
 	}else 
 	{
 	console.log("success");
-	success = new Boolean(true);
+	success = true;
 	}
 	response.end();
 	
@@ -187,7 +187,7 @@ console.log('connecting to database');
 });
 
 console.log(success);
-if(success)
+if(success == true)
 {
 var fs = require('fs');
 
