@@ -173,21 +173,9 @@ console.log('connecting to database');
 	if(err) {
 	console.log(err);
 	console.log('Error');
-	success = false;
 	}else 
 	{
 	console.log("success");
-	success = true;
-	}
-	
-	
-
-});
-}
-});
-
-
-
 var fs = require('fs');
 
 try {
@@ -198,7 +186,6 @@ try {
 	response.end('Internal Server error');
 	}else {
 		response.writeHead(200,{'Content-Type':'text/html'});
-	response.write(html)
 	response.end(html, 'utf-8');
 }
 });
@@ -206,6 +193,14 @@ try {
 	response.writeHead(500,{'Content-Type':'text/plain'});
 	response.end('Internal server error');
 } 
+	}
+	response.end();
+	
+
+});
+}
+});
+
 
 
 
