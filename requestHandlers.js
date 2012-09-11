@@ -176,16 +176,16 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	response.write("success");
 	}
-	response.end();
+	
 	
 
 });
 }
 });
 
-
+response.write("success");
+response.end();
 
 
 
