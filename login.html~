@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-
+<head>
+<link rel="stylesheet" type="text/css" href="Groceries.css" />
+</head>
 <div id="login" >
 
 <form action="/authenticate" method="get">

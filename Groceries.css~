@@ -4,11 +4,24 @@ background-image:url('sakura.jpg');
 
 
 }
-#shoppinglistcontents, #login {
-	background-color: rgba(0,0,0,.7); 
+
+#login {
+	background-color: rgba(205,205,201, .7);
+	height:100%;
+	width:50%;
+	margin-top: 25%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+#shoppinglistcontents{
+	background-color: rgba(205,205,201,.7); 
 	height:100%;
 	width:80%;
-	margin:auto;
+	margin-top:25%;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 0;
 	
 	border:1px solid black;

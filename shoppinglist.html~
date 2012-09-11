@@ -49,7 +49,10 @@ function validateform(form) {
 	inlineMsg('datepurchased', "You must enter a date", 2);
 	return false;
 	}
-	if(!((pname === "Andy") || (pname ==="Alex") || (pname==="Sacha") || (pname ==="Kirsten")))
+	if(pname == null || pname == "") {
+	inlineMsg('pname', 'You must enter your name', 2);
+	return false;
+	} else if(!((pname === "Andy") || (pname ==="Alex") || (pname==="Sacha") || (pname ==="Kirsten")))
 	{
 		
 	inlineMsg('pname', "Unrecognized Resident Name", 2);
@@ -62,10 +65,7 @@ function validateform(form) {
 	inlineMsg('datepurchased', "You have entered an invalid date format",2);
 	return false;
 	}
-	if(pname == null || pname == "") {
-	inlineMsg('pname', 'You must enter your name', 2);
-	return false;
-	}
+	
 	if(shared == null || shared ==="") {
 	inlineMsg('shared', 'You must select an option', 2);
 	return false;

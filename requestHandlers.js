@@ -21,6 +21,46 @@ try {
 
 }
 
+function viewgroceries(response) {
+
+console.log("Request handler for /viewgroceries was called.");
+
+var pg = require('pg');
+var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+console.log('connecting to database');
+	console.log(connectionString);
+	pg.connect(connectionString, function(err,client) {
+	if(err) {
+	console.log(err);
+	console.log('connection error');
+	}
+	else {
+	console.log('connection success');
+	
+	
+	client.query("select nameofitem, datepurchased from septembergroceries" , function(err, result) {
+	if(err) {
+	console.log(err);
+	console.log('SQL Error');
+	}else 
+	{
+	console.log("success");
+	response.write('<table>');
+	for(var i =0; i<result.rows.length; i++) {
+	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + "</td></tr>");
+	}
+	response.write('</table>');
+	}
+	response.end();
+	
+
+});
+}
+});
+
+}
+
 
 
 
@@ -157,6 +197,7 @@ fs = require ('fs');
 
 }
 
+exports.viewgroceries = viewgroceries;
 exports.backgroundimage = backgroundimage;
 exports.start = start;
 exports.addgroceries  = addgroceries;
