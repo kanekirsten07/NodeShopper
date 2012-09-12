@@ -71,7 +71,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	response.write(result.rows[1].username);
+	console.log(result.rows[1].username);
 	}
 	response.end();
 	

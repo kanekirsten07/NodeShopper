@@ -37,8 +37,7 @@ request.on('end', function() {
 	post = qs.parse(chunk);
 	uname = post.uname;
 	pword = post.pword;
-	response.write(uname);
-	response.write(pword);
+	
 
 });
 }else {
@@ -71,7 +70,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	console.log(result.rows[1].username);
+	console.log(result);
 	}
 	response.end();
 	
