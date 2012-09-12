@@ -25,6 +25,10 @@ try {
 function authenticate(response, request) {
 
 	var uname, pword;
+        response.statusCode = 302;
+	    response.setHeader('Location',"/login");
+	    response.end();
+
 
 
 var qs = require('querystring');
@@ -78,6 +82,9 @@ console.log('connecting to database');
 	}else
 	{
 	console.log('unrecognized username');
+	 response.statusCode = 302;
+     response.setHeader('Location',"/login");
+     response.end();
 	}
 	}
 	response.end();
