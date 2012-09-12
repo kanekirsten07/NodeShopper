@@ -77,6 +77,7 @@ console.log('connecting to database');
 	if (typeof(uname)!= 'undefined'){
 	uname = uname.username;
 	console.log(uname);
+	response.writeHead(302, {'Location': '/viewGroceries'});
 	}else
 	{
 	console.log('unrecognized username');
