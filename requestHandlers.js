@@ -25,9 +25,7 @@ try {
 function authenticate(response, request) {
 
 	var uname, pword;
-        response.statusCode = 302;
-	    response.setHeader('Location',"/login");
-	    response.end();
+
 
 
 
