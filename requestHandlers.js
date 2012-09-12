@@ -71,8 +71,9 @@ console.log('connecting to database');
 	}else
 	{
 	console.log("success");
-	var uname = result.rows[0].username;
+	var uname = result.rows[0];
 	if (typeof(uname)!= 'undefined'){
+	uname = uname.username;
 	console.log(uname);
 	}else
 	{
