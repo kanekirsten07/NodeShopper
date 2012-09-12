@@ -17,9 +17,10 @@ try {
 }catch(err){
 	response.writeHead(500,{'Content-Type':'text/plain'});
 	response.end('Internal server error');
-} 
+}
 
 }
+
 
 function authenticate(response, request) {
 
@@ -37,7 +38,7 @@ request.on('end', function() {
 	post = qs.parse(chunk);
 	uname = post.uname;
 	pword = post.pword;
-	
+
 
 });
 }else {
@@ -57,24 +58,29 @@ console.log('connecting to database');
 	}
 	else {
 	console.log('connection success');
-	
+
 	prepAuthenticate = {
 	name: 'select uname',
 	text: "Select username from Users where username = $1 and pword = crypt($2, pword)",
 	values: [uname, pword]};
-	
+
 	client.query(prepAuthenticate , function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('SQL Error');
-	}else 
+	}else
 	{
 	console.log("success");
 	var uname = result.rows[0].username;
+	if (typeof(uname)!= 'undefined'){
 	console.log(uname);
+	}else
+	{
+	console.log('unrecognized username');
+	}
 	}
 	response.end();
-	
+
 
 });
 }
@@ -99,13 +105,13 @@ console.log('connecting to database');
 	}
 	else {
 	console.log('connection success');
-	
-	
+
+
 	client.query("select * from septembergroceries" , function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('SQL Error');
-	}else 
+	}else
 	{
 	console.log("success");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
@@ -118,7 +124,7 @@ console.log('connecting to database');
 	response.write('</body></html>');
 	}
 	response.end();
-	
+
 
 });
 }
@@ -147,7 +153,7 @@ try {
 }catch(err){
 	response.writeHead(500,{'Content-Type':'text/plain'});
 	response.end('Internal server error');
-} 
+}
 
 }
 
@@ -189,14 +195,14 @@ request.on('end', function() {
 	fooditem = post.fooditem;
 	 datebought = post.datepurchased;
 	 name = post.pname;
-	
-	
+
+
 	 shared = post.shared;
 	if(post.taxable == null){
 	 taxable = "no";
 }else {
 	taxable = post.taxable;
-	
+
 }
 
 
@@ -205,7 +211,7 @@ if(post.payedfor == null){
 	 paidfor = "no";
 }else {
 	 paidfor = "yes";
-	
+
 }
 response.end();
 });
@@ -231,18 +237,18 @@ console.log('connecting to database');
 	name: 'insert grocery',
 	text:"INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared) VALUES ($1, $2, $3, $4, $5, $6)",
 	values: [fooditem, datebought, taxable, paidfor, name,shared]};
-	
+
 	client.query(prepInsert, function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('Error');
-	}else 
+	}else
 	{
 	console.log("success");
-	
+
 	}
-	
-	
+
+
 
 });
 }
