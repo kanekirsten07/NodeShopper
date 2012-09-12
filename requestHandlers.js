@@ -82,7 +82,7 @@ console.log('connecting to database');
 	console.log('unrecognized username');
 	 response.statusCode = 302;
      response.setHeader('Location',"/login");
-     response.end();
+
 	}
 	}
 	response.end();
