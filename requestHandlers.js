@@ -22,7 +22,7 @@ try {
 }
 
 
-function authenticate(response, request) {
+function authenticate(response, request, handle) {
 
 	var uname, pword;
 
@@ -80,8 +80,7 @@ console.log('connecting to database');
 	}else
 	{
 	console.log('unrecognized username');
-	    response.writeHead(200,{'Content-Type':'text/plain'});
-	 response.end('Incorrect Username/Password');
+	    handle['/login'](response, request, handle);
 	}
 	}
 	response.end();
