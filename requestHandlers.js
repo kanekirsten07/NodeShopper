@@ -25,7 +25,9 @@ try {
 function authenticate(response, request) {
 
 	var uname, pword;
-
+        response.statusCode = 302;
+	    response.setHeader('Location',"/login");
+	    response.end();
 
 
 
@@ -80,9 +82,8 @@ console.log('connecting to database');
 	}else
 	{
 	console.log('unrecognized username');
-	 response.statusCode = 302;
-     response.setHeader('Location',"/login");
-
+	    response.writeHead(200,'Content-Type':'text/plain'});
+	 response.end('Incorrect Username/Password');
 	}
 	}
 	response.end();
