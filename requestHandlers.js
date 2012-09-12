@@ -70,7 +70,7 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	var uname = result.rows[1];
+	var uname = result.rows[0].username;
 	console.log(uname);
 	}
 	response.end();
