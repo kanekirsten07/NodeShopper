@@ -82,7 +82,7 @@ console.log('connecting to database');
 	}else
 	{
 	console.log('unrecognized username');
-	    response.writeHead(200,'Content-Type':'text/plain'});
+	    response.writeHead(200,{'Content-Type':'text/plain'});
 	 response.end('Incorrect Username/Password');
 	}
 	}
