@@ -81,7 +81,7 @@ console.log('connecting to database');
 	{
 	console.log('unrecognized username');
 	response.writeHead(302, {'Location': '/login'});
-	   ;
+	   response.end();
 	}
 	}
 	response.end();
