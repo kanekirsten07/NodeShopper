@@ -39,7 +39,7 @@ request.on('end', function() {
 	pword = post.pword;
 	response.write(uname);
 	response.write(pword);
-response.end();
+
 });
 }else {
 	response.write("There doesn't appear to be anything here");
@@ -71,7 +71,8 @@ console.log('connecting to database');
 	}else 
 	{
 	console.log("success");
-	
+	response.write(uname);
+	response.write(pword);
 	}
 	response.end();
 	
