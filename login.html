@@ -7,12 +7,14 @@
 <body>
 <div id="login" >
 
-<form action="/authenticate" method="get">
+<form action="/authenticate" method="POST">
 Username: <input type="text" name="uname" /> <br>
-Password: <input type="text" name="pword" /> <br>
+Password:  <input type="text" name="pword" /> <br>
 
-<input type="submit" />
+<input type="submit" value="Login" />
 </form>
+
+<p> Don't have an account yet? Click <a href="/register"> here </a> to register </p>
 </div>
 
 </body>

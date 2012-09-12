@@ -21,6 +21,68 @@ try {
 
 }
 
+function authenticate(response, request) {
+
+	var uname, pword;
+
+
+var qs = require('querystring');
+
+if(request.method == 'POST') {
+	var chunk = '';
+	request.on('data', function(data) {
+	chunk += data;
+});
+request.on('end', function() {
+	post = qs.parse(chunk);
+	uname = post.uname;
+	pword = post.pword;
+	response.write(uname);
+	response.write(pword);
+response.end();
+});
+}else {
+	response.write("There doesn't appear to be anything here");
+	response.end();
+}
+
+var pg = require('pg');
+var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+console.log('connecting to database');
+	console.log(connectionString);
+	pg.connect(connectionString, function(err,client) {
+	if(err) {
+	console.log(err);
+	console.log('connection error');
+	}
+	else {
+	console.log('connection success');
+	
+	prepAuthenticate = {
+	name: 'select uname',
+	text: "Select username from Users where username = $1 and pword = crypt($2, pword)",
+	values: [uname, pword]};
+	
+	client.query(prepAuthenticate , function(err, result) {
+	if(err) {
+	console.log(err);
+	console.log('SQL Error');
+	}else 
+	{
+	console.log("success");
+	
+	}
+	response.end();
+	
+
+});
+}
+});
+
+
+}
+
 function viewgroceries(response) {
 
 console.log("Request handler for /viewgroceries was called.");
@@ -185,7 +247,7 @@ console.log('connecting to database');
 });
 }
 });
-console.log(success);
+
 
 
 response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
@@ -211,6 +273,7 @@ fs = require ('fs');
 exports.viewgroceries = viewgroceries;
 exports.backgroundimage = backgroundimage;
 exports.start = start;
+exports.authenticate = authenticate;
 exports.addgroceries  = addgroceries;
 exports.style = style;
 exports.postGroceries = postGroceries;
