@@ -86,8 +86,8 @@ console.log('connecting to database');
 	}else
 	{
 	console.log('unrecognized username');
-	rresponse.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-     response.write('<div id="loginfail"><h1> SFail.</h1><h3> Unrecognzied username and/or password</h3><br><br></div>');
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+     response.write('<div id="loginfail"><h1> Fail.</h1><h3> Unrecognzied username and/or password</h3><br><br><p> Would you like to <a href="/login"> Try again?</a> </p<p> Have you <a href="/register"> registered yet?</a></p> <p> Have you <a href="/passwordreset"> forgotten your password?</a> </p></div>');
      response.write('</body></html>');
 
      response.end();
