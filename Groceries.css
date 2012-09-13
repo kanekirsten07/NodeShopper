@@ -17,7 +17,7 @@ td, tr {
 
 
 
-#login, #groceries, #success {
+#login, #groceries, #success, #loginsuccess, #loginfail {
 	background-color: rgba(205,205,201, .7);
 	height:100%;
 	width:50%;

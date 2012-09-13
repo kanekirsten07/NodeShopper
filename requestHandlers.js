@@ -77,14 +77,21 @@ console.log('connecting to database');
 	if (typeof(uname)!= 'undefined'){
 	uname = uname.username;
 	console.log(uname);
-	response.writeHead(200, {'content-type': 'text/plain'});
-	response.write("success");
-	response.end();
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+    response.write('<div id="loginsuccess"><h1> Success!</h1><h3> You have successfully logged in. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Another Item"/></form></div>');
+    response.write('</body></html>');
+
+    response.end();
+
 	}else
 	{
 	console.log('unrecognized username');
-	response.writeHead(301, {'Location': '/login'});
-	   response.end();
+	rresponse.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+     response.write('<div id="loginfail"><h1> SFail.</h1><h3> Unrecognzied username and/or password</h3><br><br></div>');
+     response.write('</body></html>');
+
+     response.end();
+
 	}
 	}
 
