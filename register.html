@@ -8,10 +8,10 @@
 <div class ="container"id="register" >
 
     <form id="registerform" action="/adduser" onsubmit = "return confirmemail(this);"method="POST">
-       Desired Username: <input type="text" name="uname" /> <br>
-       Password:  <input id="firstpassword" type="password" name="pword" /> <br>
-       Confirm Password: <input id="confirmpassword" type="password" /> <br>
-       Email : <input name="email"id="email" type="text"/><br>
+       <label for="uname"> Desired Username:</label> <input id="uname" type="text" name="uname" /> <br>
+       <label for="pword">Password: </label> <input id="pword" type="password" name="pword" /> <br>
+       <label for="confirmpassword">Confirm Password:</label> <input id="confirmpassword" type="password" /> <br>
+       <label for="email">Email :</label> <input name="email"id="email" type="text"/><br>
         <input type="submit" value="Register" />
     </form>
 

@@ -16,7 +16,11 @@ td, tr {
 	padding: 0;
 }
 
-
+#register input
+{
+display:block;
+align:center;
+}
 
 #login, #groceries, #success, #loginsuccess, #loginfail, #register {
 	background-color: rgba(205,205,201, .7);

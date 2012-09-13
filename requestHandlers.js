@@ -150,7 +150,7 @@ function adduser(response,request)
                	response.end();
                }
 
-                                /*
+
                var pg = require('pg');
                var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
@@ -165,8 +165,8 @@ function adduser(response,request)
                	console.log('connection success');
                	prepInsert = {
                	name: 'insert User',
-               	text:"INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared) VALUES ($1, $2, $3, $4, $5, $6)",
-               	values: [fooditem, datebought, taxable, paidfor, name,shared]};
+               	text:"INSERT INTO Users  (username, pword, md5pwd) VALUES ($1, crypt($2, gen_salt('md5')), md5($2))",
+               	values: [username, password]};
 
                	client.query(prepInsert, function(err, result) {
                	if(err) {
@@ -183,7 +183,7 @@ function adduser(response,request)
                });
                }
                });
-               */
+               response.end();
 
 }
 
