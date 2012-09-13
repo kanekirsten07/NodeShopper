@@ -58,19 +58,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="requestHandlers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="requestHandlers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requestHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="234" column="29" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.0">
+            <state line="222" column="41" selection-start="6384" selection-end="6384" vertical-scroll-proportion="0.29149234">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Groceries.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Groceries.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Groceries.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="8" selection-start="251" selection-end="251" vertical-scroll-proportion="0.42465752">
+            <state line="24" column="70" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,8 +145,8 @@
         <option value="$PROJECT_DIR$/register.html" />
         <option value="$PROJECT_DIR$/router.js" />
         <option value="$PROJECT_DIR$/shoppinglist.html" />
-        <option value="$PROJECT_DIR$/requestHandlers.js" />
         <option value="$PROJECT_DIR$/Groceries.css" />
+        <option value="$PROJECT_DIR$/requestHandlers.js" />
       </list>
     </option>
   </component>
@@ -450,13 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="41" selection-start="612" selection-end="612" vertical-scroll-proportion="-8.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="89" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
@@ -485,16 +478,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requestHandlers.js">
+    <entry file="file://$PROJECT_DIR$/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="29" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.0">
+        <state line="13" column="41" selection-start="612" selection-end="612" vertical-scroll-proportion="-8.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Groceries.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="8" selection-start="251" selection-end="251" vertical-scroll-proportion="0.42465752">
+        <state line="24" column="70" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requestHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="41" selection-start="6384" selection-end="6384" vertical-scroll-proportion="0.29149234">
           <folding />
         </state>
       </provider>

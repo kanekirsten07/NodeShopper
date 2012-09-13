@@ -220,7 +220,7 @@ if(request.method=="POST")
 
 	console.log("success");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-	response.write('<div id="view">')
+	response.write('<div id="groceriesdiv">')
 	response.write('<table id = "groceries">');
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ "</td></tr>")
 	for(var i =0; i<result.rows.length; i++) {
