@@ -5,9 +5,10 @@ background-image:url('sakura.jpg');
 
 }
 
-#view, #add {
+#view, #add, #firstpassword, #confirmpassword {
 	display:inline;
 }
+
 
 
 td, tr {
@@ -17,7 +18,7 @@ td, tr {
 
 
 
-#login, #groceries, #success, #loginsuccess, #loginfail {
+#login, #groceries, #success, #loginsuccess, #loginfail, #register {
 	background-color: rgba(205,205,201, .7);
 	height:100%;
 	width:50%;

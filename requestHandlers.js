@@ -104,6 +104,90 @@ console.log('connecting to database');
 
 }
 
+function register(response, request)
+{
+try {
+ fs.readFile('./register.html', function(error,html){
+	if(error){
+	console.log(error);
+	response.writeHead(500, {'Content-Type':'text/html'});
+	response.end('Internal Server error');
+	}else {
+		response.writeHead(200,{'Content-Type':'text/html'});
+	response.end(html, 'utf-8');
+}
+});
+}catch(err){
+	response.writeHead(500,{'Content-Type':'text/plain'});
+	response.end('Internal server error');
+}
+
+}
+
+function adduser(response,request)
+{
+               console.log("Request handler 'add user' was called.");
+               var username, password, email;
+
+               var qs = require('querystring');
+
+               if(request.method == 'POST') {
+               	var chunk = '';
+               	request.on('data', function(data) {
+               	chunk += data;
+               });
+               request.on('end', function() {
+               	post = qs.parse(chunk);
+               	username= post.uname;
+               	 password = post.pword;
+               	 email = post.email;
+                       response.write(username + password + email)    ;
+                                  response.end();
+
+               });
+               }else {
+               	response.write("There doesn't appear to be anything here");
+               	response.end();
+               }
+
+                                /*
+               var pg = require('pg');
+               var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+               console.log('connecting to database');
+               	console.log(connectionString);
+               	pg.connect(connectionString, function(err,client) {
+               	if(err) {
+               	console.log(err);
+               	console.log('connection error');
+               	}
+               	else {
+               	console.log('connection success');
+               	prepInsert = {
+               	name: 'insert User',
+               	text:"INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared) VALUES ($1, $2, $3, $4, $5, $6)",
+               	values: [fooditem, datebought, taxable, paidfor, name,shared]};
+
+               	client.query(prepInsert, function(err, result) {
+               	if(err) {
+               	console.log(err);
+               	console.log('Error');
+               	}else
+               	{
+               	console.log("success");
+
+               	}
+
+
+
+               });
+               }
+               });
+               */
+
+}
+
+
 function viewgroceries(response) {
 
 console.log("Request handler for /viewgroceries was called.");
@@ -290,7 +374,7 @@ fs = require ('fs');
 	response.end(backgroundimage, 'binary');
 
 }
-
+exports.register = register;
 exports.viewgroceries = viewgroceries;
 exports.backgroundimage = backgroundimage;
 exports.start = start;
@@ -298,3 +382,4 @@ exports.authenticate = authenticate;
 exports.addgroceries  = addgroceries;
 exports.style = style;
 exports.postGroceries = postGroceries;
+exports.adduser = adduser;
