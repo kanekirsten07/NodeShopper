@@ -61,7 +61,7 @@
       <file leaf-file-name="requestHandlers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requestHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="227" selection-start="7253" selection-end="7253" vertical-scroll-proportion="0.56624824">
+            <state line="228" column="192" selection-start="7222" selection-end="7222" vertical-scroll-proportion="0.56624824">
               <folding />
             </state>
           </provider>
@@ -494,7 +494,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requestHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="227" selection-start="7253" selection-end="7253" vertical-scroll-proportion="0.56624824">
+        <state line="228" column="192" selection-start="7222" selection-end="7222" vertical-scroll-proportion="0.56624824">
           <folding />
         </state>
       </provider>

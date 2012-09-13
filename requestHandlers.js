@@ -226,7 +226,7 @@ if(request.method=="POST")
 	}
 	response.write('</table>');
 	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="post">');
-	response.write('Filter List: <select name="filter" id="filter"><option value =""> Select</option> <option value ="9"> Shared </option><option value ="10"> October </option></select> <br> input type="submit" /></form>');
+	response.write('Filter List: <select name="filter" id="filter"><option value =""> Select</option> <option value ="9"> Shared </option><option value ="10"> October </option></select> <br> <input type="submit" /></form>');
 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
 	response.write('</body></html>');
 	}
