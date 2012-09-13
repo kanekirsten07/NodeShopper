@@ -61,7 +61,7 @@
       <file leaf-file-name="requestHandlers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requestHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="145" selection-start="8810" selection-end="8810" vertical-scroll-proportion="0.5843794">
+            <state line="236" column="152" selection-start="8826" selection-end="8826" vertical-scroll-proportion="0.5843794">
               <folding />
             </state>
           </provider>
@@ -471,13 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shoppinglist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="1" selection-start="869" selection-end="899" vertical-scroll-proportion="-15.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="41" selection-start="612" selection-end="612" vertical-scroll-proportion="-8.125">
@@ -492,9 +485,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shoppinglist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="1" selection-start="869" selection-end="899" vertical-scroll-proportion="-15.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/requestHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="145" selection-start="8810" selection-end="8810" vertical-scroll-proportion="0.5843794">
+        <state line="236" column="152" selection-start="8826" selection-end="8826" vertical-scroll-proportion="0.5843794">
           <folding />
         </state>
       </provider>
