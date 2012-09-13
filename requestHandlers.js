@@ -220,14 +220,19 @@ if(request.method=="POST")
 
 	console.log("success");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+	response.write('<div id="view">')
 	response.write('<table id = "groceries">');
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ "</td></tr>")
 	for(var i =0; i<result.rows.length; i++) {
 	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td></tr>');
 	}
 	response.write('</table>');
+	response.write('<p>Input either a standalone month or a combination of month/day to filter your results</p>')
 	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="post">');
-	response.write('Filter List: <select name="filter" id="filter"><option value =""> Select</option> <option value ="9"> September</option><option value ="10"> October </option></select> <br> <input type="submit" /></form>');
+	response.write('Month: <select name="month"> <option> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
+	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option>')
+	response.write('<input type="submit" /></form>');
+	response.write('</div>');
 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
 	response.write('</body></html>');
 	}

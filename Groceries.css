@@ -22,7 +22,7 @@ display:block;
 align:center;
 }
 
-#login, #groceries, #success, #loginsuccess, #loginfail, #register {
+#login, #groceries, #success, #loginsuccess, #loginfail, #register, #view {
 	background-color: rgba(205,205,201, .7);
 	height:100%;
 	width:50%;
