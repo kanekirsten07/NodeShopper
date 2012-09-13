@@ -78,7 +78,7 @@ console.log('connecting to database');
 	uname = uname.username;
 	console.log(uname);
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-    response.write('<div id="loginsuccess"><h1> Success!</h1><h3> You have successfully logged in. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Another Item"/></form></div>');
+    response.write('<div id="loginsuccess"><h1> Success!</h1><h3> You have successfully logged in. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Item To Database"/></form></div>');
     response.write('</body></html>');
 
     response.end();
@@ -183,19 +183,23 @@ function adduser(response,request)
                });
                }
                });
-               response.end();
 
+                  response.end();
 }
 
 
-function viewgroceries(response) {
+function viewgroceries(response, request) {
 
 console.log("Request handler for /viewgroceries was called.");
 
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
-console.log('connecting to database');
+if(request.method="POST")
+	{
+         response.write("Hello World");
+	}else
+	{console.log('connecting to database');
 	console.log(connectionString);
 	pg.connect(connectionString, function(err,client) {
 	if(err) {
@@ -212,6 +216,7 @@ console.log('connecting to database');
 	console.log('SQL Error');
 	}else
 	{
+
 	console.log("success");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
 	response.write('<table id = "groceries">');
@@ -220,14 +225,16 @@ console.log('connecting to database');
 	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td></tr>');
 	}
 	response.write('</table>');
+	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="post">');
+	response.write('Filter List: <select name="filter" id="filter"><option value =""> Select</option> <option value ="9"> Shared </option><option value ="10"> October </option></select> <br>');
+	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
 	response.write('</body></html>');
 	}
 	response.end();
-
-
-});
-}
-});
+    });
+    }
+    });
+    }
 
 }
 
