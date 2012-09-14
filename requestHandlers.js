@@ -223,7 +223,7 @@ if(request.method=='POST')
                                           	console.log('connection success');
                                              selectMonthOnly = {
                                              	name: 'select month',
-                                             	text:'select * from groceries where extract(month from "datepurchased"= $1' ,
+                                             	text:'select * from groceries where extract(month from "datepurchased")= $1' ,
                                              	values: [viewmonth]};
 
                                           	client.query(selectMonthOnly, function(err, result) {
