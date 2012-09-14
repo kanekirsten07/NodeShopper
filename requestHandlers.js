@@ -297,7 +297,7 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-var post, fooditem,datebought, name, shared, taxable, paidfor;
+var post, fooditem,datebought, name, shared, taxable, paidfor, price;
 
 var qs = require('querystring');
 
