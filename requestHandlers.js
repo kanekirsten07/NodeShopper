@@ -208,8 +208,7 @@ if(request.method=='POST')
          	post = qs.parse(chunk);
          	viewmonth = post.month;
          	viewday = post.day;
-            console.log(viewmonth);
-            console.log(viewday);
+
 
          });
             if (typeof(viewday)!= 'undefined')
