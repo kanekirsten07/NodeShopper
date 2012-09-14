@@ -209,7 +209,7 @@ if(request.method=='POST')
          	viewmonth = post.month;
          	viewday = post.day;
          	purchaser = post.purchaser;
-             if(viewday==="" && viewmonth==="")
+             if((viewday==="" || viewday==="-Day-") && (viewmonth==="" || viewmonth==="-Month-"))
              {
                  console.log('connecting to database');
                  	console.log(connectionString);
