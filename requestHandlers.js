@@ -297,7 +297,7 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-var post, fooditem,datebought, name, shared, taxable, paidfor, price;
+var post, fooditem,datebought, name, shared, taxable, paidfor, itemprice;
 
 var qs = require('querystring');
 
@@ -311,7 +311,7 @@ request.on('end', function() {
 	fooditem = post.fooditem;
 	 datebought = post.datepurchased;
 	 name = post.pname;
-      price = post.price;
+      itemprice = post.price;
 
 	 shared = post.shared;
 	if(post.taxable == null){
@@ -352,7 +352,7 @@ console.log('connecting to database');
 	prepInsert = {
 	name: 'insert grocery',
 	text:"INSERT INTO price (nameofitem, datepurchased, taxable, paidfor, purchasername, shared, price) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-	values: [fooditem, datebought, taxable, paidfor, name,shared, price]};
+	values: [fooditem, datebought, taxable, paidfor, name,shared, itemprice]};
 
 	client.query(prepInsert, function(err, result) {
 	if(err) {
