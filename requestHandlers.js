@@ -208,8 +208,8 @@ if(request.method=="POST")
 
 
          });
-         response.write(viewmonth);
-         response.write(viewday);
+         console.log(viewmonth);
+         console.log(viewday);
          response.end();
 	}else
 	{console.log('connecting to database');
