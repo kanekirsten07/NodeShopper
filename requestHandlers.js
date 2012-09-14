@@ -213,7 +213,7 @@ if(request.method=='POST')
                        {
                                           console.log('month and day') ;
                        }else   {
-                       console.log('only month');
+                       console.log('month');
                        console.log(viewmonth);
                                    console.log(viewday);
                        }
