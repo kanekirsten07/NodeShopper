@@ -221,7 +221,7 @@ if(request.method=='POST')
                  	else {
                  	console.log('connection success');
                     onlyPurchaser ={
-                    name: 'select purchaser,
+                    name: 'select purchaser',
                     text: 'select * from groceries where purchasername=$1 order by datepurchased asc'  ,
                     values:[purchaser]};
 
