@@ -263,9 +263,8 @@ if(request.method=='POST')
                        console.log('month and day');
                        console.log(viewmonth);
                        console.log(viewday);
-                       console.log('month') ;
-                                                                 console.log('connecting to database');
-                                                                 	console.log(connectionString);
+                       console.log('connecting to database');
+                                                                 console.log(connectionString);
                                                                  	pg.connect(connectionString, function(err,client) {
                                                                  	if(err) {
                                                                  	console.log(err);
@@ -274,7 +273,7 @@ if(request.method=='POST')
                                                                  	else {
                                                                  	console.log('connection success');
                                                                     selectMonthandDay = {
-                                                                    	name: 'select month',
+                                                                    	name: 'select month and day',
                                                                     	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ',
                                                                     	values: [viewmonth, viewday]};
 
