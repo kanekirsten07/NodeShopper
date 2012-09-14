@@ -191,7 +191,7 @@ function adduser(response,request)
 function viewgroceries(response, request) {
 
 console.log("Request handler for /viewgroceries was called.");
-var viewmonth, viewday, post;
+var viewmonth, viewday, post, purchaser;
 var pg = require('pg');
 var qs = require('querystring');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
@@ -208,6 +208,7 @@ if(request.method=='POST')
          	post = qs.parse(chunk);
          	viewmonth = post.month;
          	viewday = post.day;
+         	purchaser = post.purchaser;
 
            if (viewday=== '-Day-'|| viewday ==="")
                        {
@@ -221,10 +222,18 @@ if(request.method=='POST')
                                           	}
                                           	else {
                                           	console.log('connection success');
+                                          	if(!(purchaser === ""))
+                                          	{
+                                          	      selectMonthOnly ={
+                                          	      name: 'select month and purchaser',
+                                          	      text: 'select * from groceries where extract(month from "datepurchased") = $1 and purchasername = $2'  ,
+                                          	      values:[viewmonth, purchaser]};
+                                          	}else{
                                              selectMonthOnly = {
                                              	name: 'select month',
                                              	text:'select * from groceries where extract(month from "datepurchased")= $1' ,
                                              	values: [viewmonth]};
+                                                  }
 
                                           	client.query(selectMonthOnly, function(err, result) {
                                           	if(err) {
@@ -250,6 +259,7 @@ if(request.method=='POST')
                                           	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
                                           	response.write('<option value="16> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
                                           	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+                                          	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
                                           	response.write('<input type="submit" /></form>');
                                           	response.write('</div>');
                                           	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
@@ -272,11 +282,18 @@ if(request.method=='POST')
                                                                  	}
                                                                  	else {
                                                                  	console.log('connection success');
+                                                                 	if(!(purchaser === ""))
+                                                                    {
+                                                                    selectMonthandDay ={
+                                                                     name: 'select month and day and purchaser',
+                                                                      text: 'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2and purchasername = $2'  ,
+                                                                       values:[viewmonth, viewday, purchaser]};
+                                                                      }else{
                                                                     selectMonthandDay = {
                                                                     	name: 'select month and day',
                                                                     	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ',
                                                                     	values: [viewmonth, viewday]};
-
+                                                                              }
                                                                  	client.query(selectMonthandDay, function(err, result) {
                                                                  	if(err) {
                                                                  	console.log(err);
@@ -301,6 +318,7 @@ if(request.method=='POST')
                                                                  	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
                                                                  	response.write('<option value="16> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
                                                                  	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+                                                                 	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
                                                                  	response.write('<input type="submit" /></form>');
                                                                  	response.write('</div>');
                                                                  	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
@@ -351,6 +369,7 @@ if(request.method=='POST')
 	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
 	response.write('<option value="16> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
 	response.write('<input type="submit" /></form>');
 	response.write('</div>');
 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
