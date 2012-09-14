@@ -209,7 +209,7 @@ if(request.method=='POST')
          	viewmonth = post.month;
          	viewday = post.day;
 
-           if (typeof(viewday)== 'undefined')
+           if (viewday=== '-Day-')
                        {
                                           console.log('month') ;
                                           console.log('connecting to database');
@@ -280,7 +280,7 @@ if(request.method=='POST')
 	console.log('connection success');
 
 
-	client.query("select * from septembergroceries" , function(err, result) {
+	client.query("select * from groceries" , function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('SQL Error');
