@@ -311,7 +311,7 @@ request.on('end', function() {
 	fooditem = post.fooditem;
 	 datebought = post.datepurchased;
 	 name = post.pname;
-
+      price = post.price;
 
 	 shared = post.shared;
 	if(post.taxable == null){
@@ -351,8 +351,8 @@ console.log('connecting to database');
 	console.log('connection success');
 	prepInsert = {
 	name: 'insert grocery',
-	text:"INSERT INTO septembergroceries (nameofitem, datepurchased, taxable, paidfor, purchasername, shared) VALUES ($1, $2, $3, $4, $5, $6)",
-	values: [fooditem, datebought, taxable, paidfor, name,shared]};
+	text:"INSERT INTO price (nameofitem, datepurchased, taxable, paidfor, purchasername, shared, price) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+	values: [fooditem, datebought, taxable, paidfor, name,shared, price]};
 
 	client.query(prepInsert, function(err, result) {
 	if(err) {

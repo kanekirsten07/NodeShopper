@@ -8,6 +8,7 @@
 <div id="shoppinglistcontents">
 <form name="shoppinglist" onsubmit = "return validateform(this);" action="/postGroceries" method="post"> 
 Item Purchased: <input type="text" name="fooditem" id="fooditem"/> <br>
+Price: (#.##) <input type="text"  name="price" id="price"/>
 Date Purchased (mm/dd/yyyy): <input type="text" id ="datepurchased" name="datepurchased" /><br>
  
  <input type="checkbox" name="taxable" value = "yes"/> Taxable? 
@@ -36,7 +37,7 @@ function validateform(form) {
 	var datepurchased = form.datepurchased.value;
 	var pname = form.pname.value;
 	var shared = form.shared.value;
-	
+	var price = form.price.value;
 	
 	
 	if(fooditem == null || fooditem =="") {
@@ -58,7 +59,11 @@ function validateform(form) {
 	inlineMsg('pname', "Unrecognized Resident Name", 2);
 	return false;
 	}
-	
+    if(price== null || price  =="") {
+
+    inlineMsg('price', "You must enter a price", 2);
+    return false;
+    }
 	
 	
 	if(!isValidDate(datepurchased)){
