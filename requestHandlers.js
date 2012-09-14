@@ -197,7 +197,7 @@ var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQ
 
 if(request.method=="POST")
 	{
-	/*
+
          var chunk = '';
          	request.on('data', function(data) {
          	chunk += data;
@@ -211,7 +211,7 @@ if(request.method=="POST")
          });
          console.log(viewmonth);
          console.log(viewday);
-         */
+
          response.end();
 
 	}else
@@ -243,7 +243,7 @@ if(request.method=="POST")
 	}
 	response.write('</table>');
 	response.write('<p>Input either a standalone month or a combination of month/day to filter your results</p>')
-	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="post">');
+	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
 	response.write('Month: <select name="month"> <option> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
 	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
 	response.write('Day: <select name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
