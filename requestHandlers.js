@@ -197,6 +197,7 @@ var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQ
 
 if(request.method=="POST")
 	{
+	/*
          var chunk = '';
          	request.on('data', function(data) {
          	chunk += data;
@@ -210,7 +211,9 @@ if(request.method=="POST")
          });
          console.log(viewmonth);
          console.log(viewday);
+         */
          response.end();
+
 	}else
 	{console.log('connecting to database');
 	console.log(connectionString);
