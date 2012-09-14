@@ -206,9 +206,10 @@ if(request.method=='POST')
          });
          request.on('end', function() {
          	post = qs.parse(chunk);
-         	console.log(post.month);
-         	console.log(post.day);
-
+         	viewmonth = post.month;
+         	viewday = post.day;
+            console.log(viewmonth);
+            console.log(viewday);
 
          });
 
