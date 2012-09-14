@@ -275,7 +275,7 @@ if(request.method=='POST')
                                                                  	console.log('connection success');
                                                                     selectMonthandDay = {
                                                                     	name: 'select month',
-                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ,
+                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ',
                                                                     	values: [viewmonth, viewday]};
 
                                                                  	client.query(selectMonthandDay, function(err, result) {
