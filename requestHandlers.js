@@ -226,12 +226,12 @@ if(request.method=='POST')
                                           	{
                                           	      selectMonthOnly ={
                                           	      name: 'select month and purchaser',
-                                          	      text: 'select * from groceries where extract(month from "datepurchased") = $1 and purchasername = $2 order by datepurchased desc'  ,
+                                          	      text: 'select * from groceries where extract(month from "datepurchased") = $1 and purchasername = $2 order by datepurchased asc'  ,
                                           	      values:[viewmonth, purchaser]};
                                           	}else{
                                              selectMonthOnly = {
                                              	name: 'select month',
-                                             	text:'select * from groceries where extract(month from "datepurchased")= $1 order by datepurchased desc' ,
+                                             	text:'select * from groceries where extract(month from "datepurchased")= $1 order by datepurchased asc' ,
                                              	values: [viewmonth]};
                                                   }
 
@@ -286,12 +286,12 @@ if(request.method=='POST')
                                                                     {
                                                                     selectMonthandDay ={
                                                                      name: 'select month and day and purchaser',
-                                                                      text: 'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2and purchasername = $2 order by datepurchased desc'  ,
+                                                                      text: 'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2and purchasername = $2 order by datepurchased asc'  ,
                                                                        values:[viewmonth, viewday, purchaser]};
                                                                       }else{
                                                                     selectMonthandDay = {
                                                                     	name: 'select month and day',
-                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ordr by datepurchased desc',
+                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ordr by datepurchased asc',
                                                                     	values: [viewmonth, viewday]};
                                                                               }
                                                                  	client.query(selectMonthandDay, function(err, result) {
@@ -345,7 +345,7 @@ if(request.method=='POST')
 	console.log('connection success');
 
 
-	client.query("select * from groceries order by datepurchased desc" , function(err, result) {
+	client.query("select * from groceries order by datepurchased asc" , function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('SQL Error');
