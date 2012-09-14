@@ -21,6 +21,11 @@ try {
 
 }
 
+function passwordreset(response, request)
+{
+
+}
+
 
 function authenticate(response, request, handle) {
 
@@ -590,3 +595,4 @@ exports.addgroceries  = addgroceries;
 exports.style = style;
 exports.postGroceries = postGroceries;
 exports.adduser = adduser;
+exports.passwordreset = passwordreset;
