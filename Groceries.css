@@ -31,6 +31,9 @@ align:center;
 	margin-right: auto;
 	padding: 0;
 }
+#groceriesdiv {
+text-align:center;
+}
 
 #shoppinglistcontents{
 	background-color: rgba(205,205,201,.7); 
