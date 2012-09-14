@@ -61,7 +61,7 @@
       <file leaf-file-name="requestHandlers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requestHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="354" column="75" selection-start="11517" selection-end="11517" vertical-scroll-proportion="0.57043236">
+            <state line="355" column="31" selection-start="11336" selection-end="11336" vertical-scroll-proportion="0.72384936">
               <folding />
             </state>
           </provider>
@@ -124,7 +124,7 @@
       <file leaf-file-name="shoppinglist.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shoppinglist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="204" selection-start="1326" selection-end="1326" vertical-scroll-proportion="-28.125">
+            <state line="13" column="42" selection-start="513" selection-end="513" vertical-scroll-proportion="-8.125">
               <folding />
             </state>
           </provider>
@@ -479,14 +479,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shoppinglist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="204" selection-start="1326" selection-end="1326" vertical-scroll-proportion="-28.125">
+        <state line="13" column="42" selection-start="513" selection-end="513" vertical-scroll-proportion="-8.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requestHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="354" column="75" selection-start="11517" selection-end="11517" vertical-scroll-proportion="0.57043236">
+        <state line="355" column="31" selection-start="11336" selection-end="11336" vertical-scroll-proportion="0.72384936">
           <folding />
         </state>
       </provider>
