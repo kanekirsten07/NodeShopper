@@ -209,7 +209,7 @@ if(request.method=='POST')
          	viewmonth = post.month;
          	viewday = post.day;
 
-           if (typeof(viewday)!= 'undefined')
+           if (typeof(viewday)== 'undefined')
                        {
                                           console.log('month and day') ;
                        }else   {
