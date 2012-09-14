@@ -212,7 +212,13 @@ if(request.method=='POST')
             console.log(viewday);
 
          });
-
+            if (typeof(viewday)!= 'undefined')
+            {
+                               console.log('only month')
+            }else
+            console.log('month and day');
+            console.log(viewmonth);
+                        console.log(viewday);
 
          response.end();
 
