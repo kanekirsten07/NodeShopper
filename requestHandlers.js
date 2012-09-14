@@ -291,7 +291,7 @@ if(request.method=='POST')
                                                                       }else{
                                                                     selectMonthandDay = {
                                                                     	name: 'select month and day',
-                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ordr by datepurchased asc',
+                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 order by datepurchased asc',
                                                                     	values: [viewmonth, viewday]};
                                                                               }
                                                                  	client.query(selectMonthandDay, function(err, result) {
