@@ -191,13 +191,25 @@ function adduser(response,request)
 function viewgroceries(response, request) {
 
 console.log("Request handler for /viewgroceries was called.");
-
+var viewmonth, viewday;
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
 if(request.method=="POST")
 	{
-         response.write("Hello World");
+         var chunk = '';
+         	request.on('data', function(data) {
+         	chunk += data;
+         });
+         request.on('end', function() {
+         	post = qs.parse(chunk);
+         	viewmonth = post.month;
+         	viewday = post.day;
+
+
+         });
+         response.write(viewmonth);
+         response.write(viewday);
          response.end();
 	}else
 	{console.log('connecting to database');
