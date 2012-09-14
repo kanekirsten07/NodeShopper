@@ -262,7 +262,55 @@ if(request.method=='POST')
                        }else   {
                        console.log('month and day');
                        console.log(viewmonth);
-                                   console.log(viewday);
+                       console.log(viewday);
+                       console.log('month') ;
+                                                                 console.log('connecting to database');
+                                                                 	console.log(connectionString);
+                                                                 	pg.connect(connectionString, function(err,client) {
+                                                                 	if(err) {
+                                                                 	console.log(err);
+                                                                 	console.log('connection error');
+                                                                 	}
+                                                                 	else {
+                                                                 	console.log('connection success');
+                                                                    selectMonthandDay = {
+                                                                    	name: 'select month',
+                                                                    	text:'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2 ,
+                                                                    	values: [viewmonth, viewday]};
+
+                                                                 	client.query(selectMonthandDay, function(err, result) {
+                                                                 	if(err) {
+                                                                 	console.log(err);
+                                                                 	console.log('SQL Error');
+                                                                 	}else
+                                                                 	{
+
+                                                                 	console.log("success");
+                                                                 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+                                                                 	response.write('<div id="groceriesdiv">')
+                                                                 	response.write('<table id = "groceries">');
+                                                                 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>' + 'Price'+ '</td></tr>');
+                                                                 	for(var i =0; i<result.rows.length; i++) {
+                                                                 	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td></tr>');
+                                                                 	}
+                                                                 	response.write('</table>');
+                                                                 	response.write('<p>Input either a standalone month or a combination of month/day to filter your results</p>')
+                                                                 	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
+                                                                 	response.write('Month: <select id="month"name="month"> <option> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
+                                                                 	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
+                                                                 	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
+                                                                 	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
+                                                                 	response.write('<option value="16> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
+                                                                 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+                                                                 	response.write('<input type="submit" /></form>');
+                                                                 	response.write('</div>');
+                                                                 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
+                                                                 	response.write('</body></html>');
+                                                                 	}
+                                                                 	response.end();
+                                                                     });
+                                                                     }
+                                                                     });
                        }
          });
 
