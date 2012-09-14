@@ -237,7 +237,7 @@ if(request.method=='POST')
                                           	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
                                           	response.write('<div id="groceriesdiv">')
                                           	response.write('<table id = "groceries">');
-                                          	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ "</td><td> + 'Price'</td></tr>")
+                                          	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>' + 'Price'+ '</td></tr>');
                                           	for(var i =0; i<result.rows.length; i++) {
                                           	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td></tr>');
                                           	}
