@@ -209,17 +209,17 @@ if(request.method=='POST')
          	viewmonth = post.month;
          	viewday = post.day;
 
-
+           if (typeof(viewday)!= 'undefined')
+                       {
+                                          console.log('month and day')
+                       }else   {}
+                       console.log('only month);
+                       console.log(viewmonth);
+                                   console.log(viewday);
+                       }
          });
-            if (typeof(viewday)!= 'undefined')
-            {
-                               console.log('only month')
-            }else
-            console.log('month and day');
-            console.log(viewmonth);
-                        console.log(viewday);
 
-         response.end();
+
 
 	}else
 	{console.log('connecting to database');
