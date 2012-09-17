@@ -43,17 +43,42 @@ function validateform(form) {
 	var shared = form.shared.value;
 	var price = form.price.value;
 	var pin = form.PIN.value;
-	
+    var str = price.split(".");
+    var str1 = str[1];
+
+
 	if(fooditem == null || fooditem =="") {
 	
 	inlineMsg('fooditem', "You must enter an item", 2);
 	return false;
 	}
+
+if(price== null || price  =="") {
+
+inlineMsg('price', "You must enter a price", 2);
+return false;
+}
+
+
+if(str1.length >2)
+{
+inlineMsg('price', "Invalid format", 2);
+return false;
+}
+
+
+
 	if(datepurchased == null || datepurchased =="") {
 	
 	inlineMsg('datepurchased', "You must enter a date", 2);
 	return false;
 	}
+    var today = new Date();
+    var check_me = new Date(datepurchased)
+    if(!(check_me <= today)) {
+    inlineMsg('datepurchased', "Are you from the future?", 2);
+    return false;
+    }
 	if(pname == null || pname == "") {
 	inlineMsg('pname', 'You must enter your name', 2);
 	return false;
@@ -63,12 +88,10 @@ function validateform(form) {
 	inlineMsg('pname', "Unrecognized Resident Name", 2);
 	return false;
 	}
-    if(price== null || price  =="") {
 
-    inlineMsg('price', "You must enter a price", 2);
-    return false;
-    }
-	
+
+
+
 	
 	if(!isValidDate(datepurchased)){
 	inlineMsg('datepurchased', "You have entered an invalid date format",2);
