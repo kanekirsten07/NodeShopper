@@ -27,7 +27,7 @@ function passwordreset(response, request)
 }
 
 
-function authenticate(response, request, handle) {
+function authenticate(response, request, handle, connect, app) {
 
 	var uname, pword;
 
@@ -45,6 +45,8 @@ request.on('end', function() {
 	post = qs.parse(chunk);
 	uname = post.uname;
 	pword = post.pword;
+	request.session = "foo";
+	console.log(request.session);
 
 
 });
@@ -85,6 +87,8 @@ console.log('connecting to database');
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
     response.write('<div id="loginsuccess"><h1> Success!</h1><h3> You have successfully logged in. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Item To Database"/></form></div>');
     response.write('</body></html>');
+
+
 
     response.end();
 
@@ -200,7 +204,7 @@ var viewmonth, viewday, post, purchaser;
 var pg = require('pg');
 var qs = require('querystring');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
-
+console.log(request.session);
 if(request.method=='POST')
 	{
 
