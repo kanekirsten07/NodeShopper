@@ -510,6 +510,7 @@ request.on('end', function() {
 	 name = post.pname;
       itemprice = post.price;
           pin = post.PIN;
+          console.log(pin);
    if(!(pin === 1363)){
           response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
                response.write('<div id="pinfail"><h1> Fail.</h1><h3> Incorrect PIN</h3><br><br> <a href="/addgroceries"> Try again?</a></div>');
@@ -562,10 +563,19 @@ console.log('connecting to database');
 	if(err) {
 	console.log(err);
 	console.log('Error');
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+               response.write('<div id="success"><h1>Sorry about that</h1><h3> There appears to have been an SQL error. Please try again</h3><br><br><form id="view"action="/addgroceries" method ="get"><input type="submit" value="Try again"/></div>');
+               response.write('</body></html>');
+
+               response.end();
 	}else
 	{
 	console.log("success");
+           response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+           response.write('<div id="success"><h1> Success!</h1><h3> You have placed an item in the database. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Another Item"/></form></div>');
+           response.write('</body></html>');
 
+           response.end();
 	}
 
 
@@ -576,11 +586,7 @@ console.log('connecting to database');
 
 
 
-response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-response.write('<div id="success"><h1> Success!</h1><h3> You have placed an item in the database. What would you like to do now?</h3><br><br><form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View Groceries"/></form><form id="add"action="/addgroceries" method ="get"><input type="submit" value="Add Another Item"/></form></div>');
-response.write('</body></html>');
 
-response.end();
 
 
 
