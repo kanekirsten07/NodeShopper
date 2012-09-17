@@ -514,6 +514,7 @@ request.on('end', function() {
           response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
                response.write('<div id="pinfail"><h1> Fail.</h1><h3> Incorrect PIN</h3><br><br> <a href="/addgroceries"> Try again?</a></div>');
                response.write('</body></html>');
+               response.end();
    }
 
 	 shared = post.shared;
