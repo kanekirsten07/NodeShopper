@@ -511,7 +511,7 @@ request.on('end', function() {
       itemprice = post.price;
           pin = post.PIN;
           console.log(pin);
-   if(!(pin === 1363)){
+   if(!(pin === "1363")){
           response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
                response.write('<div id="pinfail"><h1> Fail.</h1><h3> Incorrect PIN</h3><br><br> <a href="/addgroceries"> Try again?</a></div>');
                response.write('</body></html>');
