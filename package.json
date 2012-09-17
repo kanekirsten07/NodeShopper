@@ -7,7 +7,5 @@
 "pg": "0.6.15",
 "express":"latest",
 "sendgrid":"0.2.1",
-"passport" : "0.1.x",
-"passport-browserid": "0.1.x"
 }
 }
