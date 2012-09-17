@@ -3,9 +3,8 @@ var router = require("./router");
 var requestHandlers = require("./requestHandlers");
 
 var handle = {}
-handle["/"] = requestHandlers.start;
-handle["/start"] = requestHandlers.start;
-handle["/login"] = requestHandlers.start;
+handle["/"] = requestHandlers.addgroceries;
+//handle["/login"] = requestHandlers.login;
 handle["/addgroceries"]=requestHandlers.addgroceries;
 handle["/postGroceries"] = requestHandlers.postGroceries;
 handle["/authenticate"] = requestHandlers.authenticate;

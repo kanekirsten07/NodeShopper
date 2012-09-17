@@ -45,9 +45,7 @@ request.on('end', function() {
 	post = qs.parse(chunk);
 	uname = post.uname;
 	pword = post.pword;
-	console.log("moo");
-	request.session = "foo";
-	console.log(request.session);
+
 
 
 });
@@ -205,7 +203,7 @@ var viewmonth, viewday, post, purchaser;
 var pg = require('pg');
 var qs = require('querystring');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
-console.log(request.session);
+
 if(request.method=='POST')
 	{
 
@@ -495,7 +493,7 @@ if(error) {
 function postGroceries(response, request)
 {
 console.log("Request handler 'post groceries' was called.");
-var post, fooditem,datebought, name, shared, taxable, paidfor, itemprice;
+var post, fooditem,datebought, name, shared, taxable, paidfor, itemprice, pin;
 
 var qs = require('querystring');
 
@@ -510,8 +508,12 @@ request.on('end', function() {
 	 datebought = post.datepurchased;
 	 name = post.pname;
       itemprice = post.price;
-
-
+          pin = post.PIN;
+   if(pin != 1363){
+          response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+               response.write('<div id="pinfail"><h1> Fail.</h1><h3> Incorrect PIN</h3><br><br> <a href="/addgroceries"> Try again?</a></div>');
+               response.write('</body></html>');
+   }
 
 	 shared = post.shared;
 	if(post.taxable == null){

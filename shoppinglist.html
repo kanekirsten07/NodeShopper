@@ -21,6 +21,7 @@ Name of Person who purchased it: <input type="text" id="pname" name="pname" /> <
 <option value ="Shared"> Shared </option>
 <option value ="Not Shared"> Not Shared </option>
 <option value ="Unknown"> Unknown </option>
+Apartment PIN <input type ="password" id="PIN" name="PIN"/>
 </select> <br>
 
 <input type="submit" />
@@ -38,7 +39,7 @@ function validateform(form) {
 	var pname = form.pname.value;
 	var shared = form.shared.value;
 	var price = form.price.value;
-	
+	var pin = form.PIN.value;
 	
 	if(fooditem == null || fooditem =="") {
 	
@@ -75,7 +76,11 @@ function validateform(form) {
 	inlineMsg('shared', 'You must select an option', 2);
 	return false;
 	}
-	
+
+    if(pin == null || pin === ""{
+    inlineMsg('PIN', 'You must enter the authentication PIN', 2);
+    return false;
+    }
 	
 	
 		return true;
