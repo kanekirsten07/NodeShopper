@@ -45,6 +45,7 @@ request.on('end', function() {
 	post = qs.parse(chunk);
 	uname = post.uname;
 	pword = post.pword;
+	console.log("moo");
 	request.session = "foo";
 	console.log(request.session);
 
