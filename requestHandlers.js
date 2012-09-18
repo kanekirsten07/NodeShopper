@@ -412,14 +412,14 @@ if(request.method=='POST')
 	console.log('SQL Error');
 	}else
 	{
-
+    var id;
 	console.log("success");
 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
 	response.write('<div id="groceriesdiv">')
 	response.write('<table id = "groceries">');
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
 	for(var i =0; i<result.rows.length; i++) {
-	var id = result.rows[i].myid;
+	 id = result.rows[i].myid;
 	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" onsubmit = "return updatehidden()" method ="POST"><input type="submit" value="Edit"></input><input type="hidden" id="myid"</input></form><form id="'+ id+ '"action="/removegroceries" onsubmit = "return updatehidden()" method ="POST"><input type="submit" value="Remove"</input><input type="hidden" id="myid"</input></form></td></tr>');
 	}
 	response.write('</table>');
