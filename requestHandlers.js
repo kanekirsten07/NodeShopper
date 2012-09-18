@@ -420,7 +420,7 @@ if(request.method=='POST')
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
 	for(var i =0; i<result.rows.length; i++) {
 	 id = result.rows[i].myid;
-	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" onsubmit = "return updatehidden()" method ="POST"><input type="submit" value="Edit"></input><input type="hidden" id="myid"</input></form><form id="'+ id+ '"action="/removegroceries" onsubmit = "return updatehidden()" method ="POST"><input type="submit" value="Remove"</input><input type="hidden" id="myid"</input></form></td></tr>');
+	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" onsubmit = "return updatehidden('+id+'')" method ="POST"><input type="submit" value="Edit"></input><input type="hidden" id="myid"</input></form><form id="+ id+ '"action="/removegroceries" onsubmit = "return updatehidden('+id+')" method ="POST"><input type="submit" value="Remove"</input><input type="hidden" id="myid"</input></form></td></tr>');
 	}
 	response.write('</table>');
 	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -435,7 +435,7 @@ if(request.method=='POST')
 	response.write('<input type="submit" value = "Filter"/></form>');
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
-	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden() {alert("hai") }</script>');
+	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden(id) {alert(id) }</script>');
 	response.write('</body></html>');
 	}
 	response.end();
