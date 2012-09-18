@@ -609,7 +609,7 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                id = post.myid;
+                id = post.myid1;
                 console.log(id);
 
 
