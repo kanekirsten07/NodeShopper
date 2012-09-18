@@ -435,7 +435,7 @@ if(request.method=='POST')
 	response.write('<input type="submit" value = "Filter"/></form>');
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
-	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden(id) { var input = "myid"+id; document.getElementById(input).value=id;  }</script>');
+	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden(id) { document.getElementByID("myid }</script>');
 	response.write('</body></html>');
 	}
 	response.end();
@@ -609,7 +609,7 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                id = post.myid1;
+                id = post.myid;
                 console.log(id);
 
 
