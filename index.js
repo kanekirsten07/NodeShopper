@@ -13,6 +13,8 @@ handle["/sakura.jpg"] = requestHandlers.backgroundimage;
 handle["/viewgroceries"] = requestHandlers.viewgroceries;
 handle["/register"]= requestHandlers.register;
 handle["/adduser"] = requestHandlers.adduser;
-handle["/passwordreset"] = requestHandlers.passwordreset;
+//handle["/passwordreset"] = requestHandlers.passwordreset;
+handle["/removegroceries"] = requestHandlers.removegroceries;
+handle["/editgroceries"] = requestHandlers.editgroceries;
 server.start(router.route, handle);
 
