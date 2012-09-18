@@ -248,7 +248,7 @@ if(request.method=='POST')
 
                  	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
                     	for(var i =0; i<result.rows.length; i++) {
-                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td></tr>');
+                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
                     	}
                  	response.write('</table>');
                  	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -307,7 +307,7 @@ if(request.method=='POST')
                                           	response.write('<table id = "groceries">');
                                           	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
                                             	for(var i =0; i<result.rows.length; i++) {
-                                            	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td></tr>');
+                                            	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
                                             	}
                                           	response.write('</table>');
                                           	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -367,7 +367,7 @@ if(request.method=='POST')
                                                                  	response.write('<table id = "groceries">');
                                                                  	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
                                                                     	for(var i =0; i<result.rows.length; i++) {
-                                                                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td></tr>');
+                                                                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
                                                                     	}
                                                                  	response.write('</table>');
                                                                  	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -420,7 +420,7 @@ if(request.method=='POST')
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
 	for(var i =0; i<result.rows.length; i++) {
 	var id = result.rows[i].myid;
-	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
+	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" onsubmit = "updatehidden('+id+')" method ="POST"><input type="submit" value="Edit"</input><input type="hidden" id="myid"</input></form><form id="'+ id+ '"action="/removegroceries" onsubmit = "updatehidden('+id+')" method ="POST"><input type="submit" value="Remove"</input><input type="hidden" id="myid"</input></form></td></tr>');
 	}
 	response.write('</table>');
 	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -435,7 +435,7 @@ if(request.method=='POST')
 	response.write('<input type="submit" value = "Filter"/></form>');
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
-	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
+	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden(id) {document.getElementById("myid").value=id}</script>');
 	response.write('</body></html>');
 	}
 	response.end();
@@ -594,6 +594,40 @@ console.log('connecting to database');
 
 }
 
+function removegroceries(response, request)
+{
+      console.log("Request handler for /removegroceries called.");
+
+      var id;
+
+      var qs = require('querystring');
+
+      if(request.method == 'POST') {
+      	var chunk = '';
+      	request.on('data', function(data) {
+      	chunk += data;
+      });
+      request.on('end', function() {
+      	post = qs.parse(chunk);
+                id = post.myid;
+                response.write(id);
+
+
+
+
+      response.end();
+      });
+      }else {
+      	response.write("There doesn't appear to be anything here");
+      	response.end();
+      }
+}
+
+function editgroceries(response, request)
+{
+
+}
+
 function backgroundimage (response)
 {
 fs = require ('fs');
@@ -611,4 +645,6 @@ exports.addgroceries  = addgroceries;
 exports.style = style;
 exports.postGroceries = postGroceries;
 exports.adduser = adduser;
-exports.passwordreset = passwordreset;
+//exports.passwordreset = passwordreset;
+exports.removegroceries = removegroceries;
+exports.editgroceries = editgroceries;
