@@ -435,7 +435,7 @@ if(request.method=='POST')
 	response.write('<input type="submit" value = "Filter"/></form>');
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
-	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden() {alert('+id+') document.getElementById("myid").value='+id+'}</script>');
+	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} function updatehidden() {alert("hai") }</script>');
 	response.write('</body></html>');
 	}
 	response.end();
