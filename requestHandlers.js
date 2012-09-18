@@ -420,7 +420,7 @@ if(request.method=='POST')
 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
 	for(var i =0; i<result.rows.length; i++) {
 	 id = result.rows[i].myid;
-	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><button type="button" value ="'+id+'"> Edit</button> <button type="button" value ="'+id+'">Remove</button></tr>');
+	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><button class="edit" type="button" value ="'+id+'"> Edit</button> <button class="remove" type="button" value ="'+id+'">Remove</button></tr>');
 	}
 	response.write('</table>');
 	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
@@ -436,7 +436,7 @@ if(request.method=='POST')
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $("button").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries, data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
