@@ -436,7 +436,7 @@ if(request.method=='POST')
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $("button").click(function(e){alert(e.currentTarget.value);});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $("button").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
@@ -599,7 +599,7 @@ function removegroceries(response, request)
 {
       console.log("Request handler for /removegroceries called.");
 
-      var id;
+      var myid;
 
       var qs = require('querystring');
 
@@ -610,8 +610,8 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                id = post.myid;
-                console.log(id);
+                myid = post.id;
+                console.log(myid);
 
 
 
