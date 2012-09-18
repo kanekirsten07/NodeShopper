@@ -610,7 +610,7 @@ function removegroceries(response, request)
       request.on('end', function() {
       	post = qs.parse(chunk);
                 id = post.myid;
-                response.write(id);
+                console.log(id);
 
 
 
