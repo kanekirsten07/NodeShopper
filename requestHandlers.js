@@ -624,7 +624,7 @@ function removegroceries(response, request)
 
 
 
-      response.end();
+
       });
       }else {
       	response.write("There doesn't appear to be anything here");
