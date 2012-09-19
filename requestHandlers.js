@@ -618,13 +618,9 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                itemid= parseInt(post.id);
-                console.log(itemid);
-
-
-
-
-
+      	itemid = post.id;
+      	console.log(itemid);
+      response.end();
       });
       }else {
       	response.write("There doesn't appear to be anything here");
@@ -659,7 +655,7 @@ function removegroceries(response, request)
       	}else
       	{
       	console.log("success");
-                       response.end();
+
       	}
 
 
@@ -667,6 +663,8 @@ function removegroceries(response, request)
       });
       }
       });
+
+      response.end();
 }
 
 function editgroceries(response, request)
