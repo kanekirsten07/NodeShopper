@@ -630,7 +630,7 @@ function removegroceries(response, request)
 
       var pg = require('pg');
       var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
-        var id = parseInt(itemid);
+
       console.log('connecting to database');
       	console.log(connectionString);
       	pg.connect(connectionString, function(err,client) {
