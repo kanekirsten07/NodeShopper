@@ -630,7 +630,7 @@ function removegroceries(response, request)
       	response.write("There doesn't appear to be anything here");
       	response.end();
       }
-       myid = parseInt(myid);
+
       var pg = require('pg');
       var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
