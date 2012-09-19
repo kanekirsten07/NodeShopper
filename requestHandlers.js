@@ -648,7 +648,7 @@ function removegroceries(response, request)
       	text:"delete from groceries where myid = $1",
       	values: [myid]};
 
-      	client.query(prepIDelete, function(err, result) {
+      	client.query(prepDelete, function(err, result) {
       	if(err) {
       	console.log(err);
       	console.log('Error');
