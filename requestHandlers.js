@@ -619,7 +619,8 @@ if(request.method == 'POST') {
 request.on('end', function() {
 	post = qs.parse(chunk);
 	itemid = post.id ;
-
+    console.log("moo");
+    console.log(itemid);
 
 
 response.end();
