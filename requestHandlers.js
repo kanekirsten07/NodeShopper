@@ -262,7 +262,7 @@ if(request.method=='POST')
                     	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
                     	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
                     	response.write('<input type="submit" value = "Filter"/></form>');
-                    	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+                    	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
                     	response.write('</div>');
                     	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
                     	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
@@ -325,7 +325,7 @@ if(request.method=='POST')
                                             	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
                                             	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
                                             	response.write('<input type="submit" value = "Filter"/></form>');
-                                            	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+                                            	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
                                             	response.write('</div>');
                                             	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
                                             	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
@@ -387,7 +387,7 @@ var id;
 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
 	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
 	response.write('<input type="submit" value = "Filter"/></form>');
-	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
 	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
@@ -441,7 +441,7 @@ var id;
 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
 	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
 	response.write('<input type="submit" value = "Filter"/></form>');
-	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
 	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
