@@ -436,7 +436,7 @@ if(request.method=='POST')
 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, sucess: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
