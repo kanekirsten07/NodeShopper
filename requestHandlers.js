@@ -618,7 +618,7 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                itemid= post.id;
+                itemid= parseInt(post.id);
                 console.log(itemid);
 
 
@@ -646,7 +646,7 @@ function removegroceries(response, request)
       	prepDelete = {
       	name: 'delete grocery',
       	text:"delete from groceries where myid = $1",
-      	values: [id]};
+      	values: [itemid]};
 
       	client.query(prepDelete, function(err, result) {
       	if(err) {
