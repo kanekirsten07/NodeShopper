@@ -241,29 +241,32 @@ if(request.method=='POST')
                  	}else
                  	{
 
-                 	console.log("success");
-                 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-                 	response.write('<div id="groceriesdiv">')
-                 	response.write('<table id = "groceries">');
-
-                 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
+                 	var id;
+                    	console.log("success");
+                    	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+                    	response.write('<div id="groceriesdiv">')
+                    	response.write('<table id = "groceries">');
+                    	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
                     	for(var i =0; i<result.rows.length; i++) {
-                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
+                    	 id = result.rows[i].myid;
+                    	response.write('<tr id=row'+id+'><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><button class="edit" type="button" value ="'+id+'"> Edit</button> <button class="remove" type="button" value ="'+id+'">Remove</button></tr>');
                     	}
-                 	response.write('</table>');
-                 	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
-                 	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
-                 	response.write('Month: <select id="month"name="month"> <option value=""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
-                 	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
-                 	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
-                 	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
-                 	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
-                 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
-                 	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
-                 	response.write('<input type="submit" /></form>');
-                 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
-                 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
-                 	response.write('</body></html>');
+                    	response.write('</table>');
+                    	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
+                    	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
+                    	response.write('Month: <select id="month"name="month"> <option value=""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
+                    	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
+                    	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
+                    	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
+                    	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
+                    	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+                    	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
+                    	response.write('<input type="submit" value = "Filter"/></form>');
+                    	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+                    	response.write('</div>');
+                    	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
+                    	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+                    	response.write('</body></html>');
                  	}
                  	response.end();
                      });
@@ -301,29 +304,32 @@ if(request.method=='POST')
                                           	}else
                                           	{
 
-                                          	console.log("success");
-                                          	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-                                          	response.write('<div id="groceriesdiv">')
-                                          	response.write('<table id = "groceries">');
-                                          	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
+                                          	var id;
+                                            	console.log("success");
+                                            	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+                                            	response.write('<div id="groceriesdiv">')
+                                            	response.write('<table id = "groceries">');
+                                            	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
                                             	for(var i =0; i<result.rows.length; i++) {
-                                            	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
+                                            	 id = result.rows[i].myid;
+                                            	response.write('<tr id=row'+id+'><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><button class="edit" type="button" value ="'+id+'"> Edit</button> <button class="remove" type="button" value ="'+id+'">Remove</button></tr>');
                                             	}
-                                          	response.write('</table>');
-                                          	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
-                                          	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
-                                          	response.write('Month: <select id="month"name="month"> <option value =""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
-                                          	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
-                                          	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
-                                          	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
-                                          	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
-                                          	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
-                                          	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
-                                          	response.write('<input type="submit" /></form>');
-                                          	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
-                                          	response.write('</div>');
-                                          	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
-                                          	response.write('</body></html>');
+                                            	response.write('</table>');
+                                            	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
+                                            	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
+                                            	response.write('Month: <select id="month"name="month"> <option value=""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
+                                            	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
+                                            	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
+                                            	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
+                                            	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
+                                            	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+                                            	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
+                                            	response.write('<input type="submit" value = "Filter"/></form>');
+                                            	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+                                            	response.write('</div>');
+                                            	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
+                                            	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+                                            	response.write('</body></html>');
                                           	}
                                           	response.end();
                                               });
@@ -360,30 +366,32 @@ if(request.method=='POST')
                                                                  	console.log('SQL Error');
                                                                  	}else
                                                                  	{
-
-                                                                 	console.log("success");
-                                                                 	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
-                                                                 	response.write('<div id="groceriesdiv">')
-                                                                 	response.write('<table id = "groceries">');
-                                                                 	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
-                                                                    	for(var i =0; i<result.rows.length; i++) {
-                                                                    	response.write('<tr><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><form id="'+ id+ '"action="/editgroceries" method ="POST"><input type="submit" value="Edit"</input></form><form id="'+ id+ '"action="/removegroceries" method ="POST"><input type="submit" value="Remove"</input></form></td></tr>');
-                                                                    	}
-                                                                 	response.write('</table>');
-                                                                 	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
-                                                                 	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
-                                                                 	response.write('Month: <select id="month"name="month"> <option value =""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
-                                                                 	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
-                                                                 	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
-                                                                 	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
-                                                                 	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
-                                                                 	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
-                                                                 	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
-                                                                 	response.write('<input type="submit" /></form>');
-                                                                 	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
-                                                                 	response.write('</div>');
-                                                                 	response.write('<script type="text/javascript"> function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);}</script>');
-                                                                 	response.write('</body></html>');
+var id;
+	console.log("success");
+	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
+	response.write('<div id="groceriesdiv">')
+	response.write('<table id = "groceries">');
+	response.write('<tr><td>' + 'Name of Item' + '</td><td>' + 'Date Purchased '+ '</td><td>'+ 'Taxable?' + '</td><td>'+ 'Paid For' + '</td><td>'+ 'Purchaser Name' + '</td><td>'+ 'Shared?'+ '</td><td>'+ 'Price'+ '</td><td>' + 'Date Entered'+'</td></tr>');
+	for(var i =0; i<result.rows.length; i++) {
+	 id = result.rows[i].myid;
+	response.write('<tr id=row'+id+'><td>' + result.rows[i].nameofitem + '</td><td>' + result.rows[i].datepurchased + '</td><td>'+ result.rows[i].taxable + '</td><td>'+ result.rows[i].paidfor + '</td><td>'+ result.rows[i].purchasername + '</td><td>'+ result.rows[i].shared+ '</td><td>' + result.rows[i].price + '</td><td>' + result.rows[i].dateentered + '</td><td><button class="edit" type="button" value ="'+id+'"> Edit</button> <button class="remove" type="button" value ="'+id+'">Remove</button></tr>');
+	}
+	response.write('</table>');
+	response.write('<p>Input either a standalone month, purchaser, a combination of month/purchaser, month/day or all three to filter your results</p>')
+	response.write('<form name="viewoptions" onsubmit = "return deletediv();" action="/viewgroceries" method="POST">');
+	response.write('Month: <select id="month"name="month"> <option value=""> -Month-</option><option value="1"> January</option><option value="2"> February </option><option value="3"> March </option> <option value ="4"> April</option> <option value="5"> May </option> <option value="6"> June</option>');
+	response.write('<option value="7"> July </option> <option value="8"> August</option> <option value="9"> September </option> <option value="10"> October</option> <option value ="11"> November</option> <option value="12"> December </option></select>')
+	response.write('Day: <select id="day"name ="day"> <option> -Day-</option> <option value="1"> 1</option> <option value="2"> 2</option><option value="3"> 3</option> <option value="4"> 4</option> <option value="5"> 5</option><option value="6"> 6</option> <option value="7"> 7</option><option value="8">8</option>');
+	response.write('<option value="9"> 9</option> <option value="10"> 10</option> <option value="11"> 11</option><option value="12"> 12</option> <option value="13"> 13</option> <option value="14"> 14</option><option value="15">15</option>');
+	response.write('<option value="16"> 16</option> <option value="17">17</option><option value="18">18</option> <option value="19"> 19</option><option value="20"> 20</option><option value="21"> 21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option> <option value="26">26</option><option value="27">27</option>');
+	response.write('<option value="28">28</option><option value="29"> 29</option><option value="30"> 30</option> <option value="31">31</option></select>');
+	response.write('Purchaser: <select id="purchaser" name="purchaser"><option value="">Select</option>  <option value="Kirsten"> Kirsten</option> <option value="Andy"> Andy </option> <option value="Alex">Alex</option><option value="Sacha"> Sacha</option></select>');
+	response.write('<input type="submit" value = "Filter"/></form>');
+	response.write('<form id="view"action="/viewgroceries" method ="get"><input type="submit" value="View All"</form>');
+	response.write('</div>');
+	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value}});});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('</body></html>');
                                                                  	}
                                                                  	response.end();
                                                                      });
