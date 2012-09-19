@@ -620,7 +620,7 @@ function removegroceries(response, request)
       	post = qs.parse(chunk);
       	itemid = post.id;
       	console.log(itemid);
-      response.end();
+
       });
       }else {
       	response.write("There doesn't appear to be anything here");
