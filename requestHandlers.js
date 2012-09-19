@@ -623,14 +623,6 @@ request.on('end', function() {
     console.log(itemid);
 
 
-response.end();
-});
-}else {
-	response.write("There doesn't appear to be anything here");
-	response.end();
-}
-
-
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
@@ -642,10 +634,11 @@ console.log('connecting to database');
 	console.log('connection error');
 	}
 	else {
+	console.log(itemid);
 	console.log('connection success');
-	prepInsert = {
-	name: 'idelete item',
-	text:"delete from groceries where myid=$1",
+	prepDelete = {
+	name: 'delete item',
+	text:'delete from groceries where myid=$1',
 	values: [itemid]};
 
 	client.query(prepInsert, function(err, result) {
@@ -667,9 +660,17 @@ console.log('connecting to database');
 }
 });
 
-  ;
+
 
              response.end();
+});
+}else {
+	response.write("There doesn't appear to be anything here");
+	response.end();
+}
+
+
+
 }
 
 function editgroceries(response, request)
