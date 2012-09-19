@@ -607,65 +607,68 @@ function removegroceries(response, request)
 {
       console.log("Request handler for /removegroceries called.");
 
-      var itemid;
+var itemid;
 
-      var qs = require('querystring');
+var qs = require('querystring');
 
-      if(request.method == 'POST') {
-      	var chunk = '';
-      	request.on('data', function(data) {
-      	chunk += data;
-      });
-      request.on('end', function() {
-      	post = qs.parse(chunk);
-      	itemid = post.id;
-
-
-      });
-
-      }else {
-      	response.write("There doesn't appear to be anything here");
-      	response.end();
-      }
-
-      var pg = require('pg');
-      var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
-
-      console.log('connecting to database');
-      	console.log(connectionString);
-      	pg.connect(connectionString, function(err,client) {
-      	if(err) {
-      	console.log(err);
-      	console.log('connection error');
-      	}
-      	else {
-      	console.log(itemid);
-      	console.log('connection success');
-      	prepDelete = {
-      	name: 'delete grocery',
-      	text:"delete from groceries where myid = $1",
-      	values: [itemid]};
-
-      	client.query(prepDelete, function(err, result) {
-      	if(err) {
-      	console.log(err);
-      	console.log('Error');
-
-                 response.end();
-
-      	}else
-      	{
-      	console.log("success");
-
-      	}
+if(request.method == 'POST') {
+	var chunk = '';
+	request.on('data', function(data) {
+	chunk += data;
+});
+request.on('end', function() {
+	post = qs.parse(chunk);
+	itemid = post.id ;
 
 
 
-      });
-      }
-      });
+response.end();
+});
+}else {
+	response.write("There doesn't appear to be anything here");
+	response.end();
+}
 
-      response.end();
+
+var pg = require('pg');
+var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+console.log('connecting to database');
+	console.log(connectionString);
+	pg.connect(connectionString, function(err,client) {
+	if(err) {
+	console.log(err);
+	console.log('connection error');
+	}
+	else {
+	console.log('connection success');
+	prepInsert = {
+	name: 'idelete item',
+	text:"delete from groceries where myid=$1",
+	values: [itemid]};
+
+	client.query(prepInsert, function(err, result) {
+	if(err) {
+	console.log(err);
+	console.log('Error');
+
+
+               response.end();
+	}else
+	{
+	console.log("success");
+
+	}
+
+
+
+});
+}
+});
+
+  ;
+
+             response.end();
 }
 
 function editgroceries(response, request)
