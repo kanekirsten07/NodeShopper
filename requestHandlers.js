@@ -642,6 +642,7 @@ function removegroceries(response, request)
       	console.log('connection error');
       	}
       	else {
+      	consolelog(itemid);
       	console.log('connection success');
       	prepDelete = {
       	name: 'delete grocery',
