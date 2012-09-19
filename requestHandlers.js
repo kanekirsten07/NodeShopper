@@ -654,12 +654,12 @@ function removegroceries(response, request)
       	console.log(err);
       	console.log('Error');
 
-
+                 response.end();
 
       	}else
       	{
       	console.log("success");
-
+                       response.end();
       	}
 
 
