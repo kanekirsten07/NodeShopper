@@ -352,7 +352,7 @@ if(request.method=='POST')
                                                                     {
                                                                     selectMonthandDay ={
                                                                      name: 'select month and day and purchaser',
-                                                                      text: 'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2and purchasername = $2 order by datepurchased asc'  ,
+                                                                      text: 'select * from groceries where extract(month from "datepurchased")= $1 and extract(day from "datepurchased")=$2and purchasername = $3 order by datepurchased asc'  ,
                                                                        values:[viewmonth, viewday, purchaser]};
                                                                       }else{
                                                                     selectMonthandDay = {
@@ -607,7 +607,7 @@ function removegroceries(response, request)
 {
       console.log("Request handler for /removegroceries called.");
 
-      var myid;
+      var itemid;
 
       var qs = require('querystring');
 
@@ -618,8 +618,8 @@ function removegroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-                myid = post.id;
-                console.log(myid);
+                itemid= post.id;
+                console.log(itemid);
 
 
 
@@ -646,7 +646,7 @@ function removegroceries(response, request)
       	prepDelete = {
       	name: 'delete grocery',
       	text:"delete from groceries where myid = $1",
-      	values: [myid]};
+      	values: [itemidid]};
 
       	client.query(prepDelete, function(err, result) {
       	if(err) {
