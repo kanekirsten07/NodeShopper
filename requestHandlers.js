@@ -630,6 +630,42 @@ function removegroceries(response, request)
       	response.write("There doesn't appear to be anything here");
       	response.end();
       }
+
+      var pg = require('pg');
+      var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+      console.log('connecting to database');
+      	console.log(connectionString);
+      	pg.connect(connectionString, function(err,client) {
+      	if(err) {
+      	console.log(err);
+      	console.log('connection error');
+      	}
+      	else {
+      	console.log('connection success');
+      	prepDelete = {
+      	name: 'delete grocery',
+      	text:"delete from groceries where myd = $1",
+      	values: [myid]};
+
+      	client.query(prepInsert, function(err, result) {
+      	if(err) {
+      	console.log(err);
+      	console.log('Error');
+
+
+
+      	}else
+      	{
+      	console.log("success");
+
+      	}
+
+
+
+      });
+      }
+      });
 }
 
 function editgroceries(response, request)
