@@ -444,7 +444,7 @@ var id;
 	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}); alert(a);});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}}); alert(a);});function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
