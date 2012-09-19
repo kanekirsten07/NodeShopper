@@ -645,7 +645,7 @@ function removegroceries(response, request)
       	console.log('connection success');
       	prepDelete = {
       	name: 'delete grocery',
-      	text:"delete from groceries where myd = $1",
+      	text:"delete from groceries where myid = $1",
       	values: [myid]};
 
       	client.query(prepInsert, function(err, result) {
