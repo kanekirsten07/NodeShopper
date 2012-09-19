@@ -641,7 +641,7 @@ console.log('connecting to database');
 	text:'delete from groceries where myid=$1',
 	values: [itemid]};
 
-	client.query(prepInsert, function(err, result) {
+	client.query(prepDelete, function(err, result) {
 	if(err) {
 	console.log(err);
 	console.log('Error');
