@@ -23,7 +23,7 @@ display:block;
 align:center;
 }
 
-#login,  #success, #loginsuccess, #loginfail,#pinfail, #register, #groceriesdiv {
+#login,  #success, #loginsuccess, #loginfail,#pinfail, #register, #groceriesdiv, #error {
 	background-color: rgba(205,205,201, .7);
 	height:100%;
 	width:50%;
