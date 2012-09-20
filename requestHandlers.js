@@ -444,7 +444,7 @@ var id;
 	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}else if(index ===1){b =$(this).html()}else if(index ===2){c=$(this).html()}else if(index===3){d=$(this).html()}else if(index===4){e=$(this).html()}else if(index===5){f=$(this).html()}else if(index===6){g=$(this).html()}}); $(row).html("<input type=text id=itemname></input><input type=text id=datepurchased></input><input type=text id=taxable></input><input type=text id=paidfor></input><input type=text id=purchasername></input><input type=text id=shared></input><input type=text id=price></input><button class=doneediting>Done</button>"); $("#itemname").val(a);$("#datepurchased").val(b);$("#taxable").val(c); $("#paidfor").val(d); $("#purchasername").val(e); $("#shared").val(f); $("#price").val(g);$(".doneediting").val(cid); $(".doneediting").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value, itemname: $("#itemname").val(), datepurchased:$("#datepurcahsed").val(), taxable:$("#taxable").val(), paidfor:$("#paidfor").val(), purchasername:$("#purchasername").val(), shared:$("#shared").val(), price:$("#price").val()}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}})});}); function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}else if(index ===1){b =$(this).html()}else if(index ===2){c=$(this).html()}else if(index===3){d=$(this).html()}else if(index===4){e=$(this).html()}else if(index===5){f=$(this).html()}else if(index===6){g=$(this).html()}}); $(row).html("<input type=text id=itemname></input><input type=text id=datepurchased></input><input type=text id=taxable></input><input type=text id=paidfor></input><input type=text id=purchasername></input><input type=text id=shared></input><input type=text id=price></input><button class=doneediting>Done</button>"); $("#itemname").val(a);$("#datepurchased").val(b);$("#taxable").val(c); $("#paidfor").val(d); $("#purchasername").val(e); $("#shared").val(f); $("#price").val(g);$(".doneediting").val(cid); $(".doneediting").click(function(e){$.ajax({type:"POST", url: "/editgroceries", data:{id:e.currentTarget.value, itemname: $("#itemname").val(), datepurchased:$("#datepurcahsed").val(), taxable:$("#taxable").val(), paidfor:$("#paidfor").val(), purchasername:$("#purchasername").val(), shared:$("#shared").val(), price:$("#price").val()}, success: function(){location.reload();}})});}); function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
@@ -676,7 +676,79 @@ console.log('connecting to database');
 function editgroceries(response, request)
 {
     console.log("Request handler for /editgroceries was called");
-      response.end();
+      var nameofitem, purchasedate, tax, paid, purchaser, shared, cost;
+
+      var qs = require('querystring');
+
+      if(request.method == 'POST') {
+      	var chunk = '';
+      	request.on('data', function(data) {
+      	chunk += data;
+      });
+      request.on('end', function() {
+      	post = qs.parse(chunk);
+      	nameofitem = post.itemname ;
+      	purchasedate = post.datepurchased;
+      	tax = post.taxable;
+      	paid = post.paidfor;
+      	purchaser=post.purchasername;
+      	shared = post.shared;
+      	cost = post.price;
+          console.log("moo");
+          console.log(nameofitem);
+          console.log(purchasedate);
+          console.log(tax);
+          console.log(paid);
+          console.log(purchaser);
+          console.log(shared);
+          console.log(cost);
+
+       /*
+      var pg = require('pg');
+      var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
+
+      console.log('connecting to database');
+      	console.log(connectionString);
+      	pg.connect(connectionString, function(err,client) {
+      	if(err) {
+      	console.log(err);
+      	console.log('connection error');
+      	}
+      	else {
+      	console.log(itemid);
+      	console.log('connection success');
+      	prepDelete = {
+      	name: 'delete item',
+      	text:'delete from groceries where myid=$1',
+      	values: [itemid]};
+
+      	client.query(prepDelete, function(err, result) {
+      	if(err) {
+      	console.log(err);
+      	console.log('Error');
+
+
+                     response.end();
+      	}else
+      	{
+      	console.log("success");
+
+      	}
+
+
+
+      });
+      }
+      });
+
+        */
+
+                   response.end();
+      });
+      }else {
+      	response.write("There doesn't appear to be anything here");
+      	response.end();
+      }
 }
 
 function backgroundimage (response)
