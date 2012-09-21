@@ -241,7 +241,7 @@ if(request.method=='POST')
                  	}else
                  	{
 
-                 	vvar id;
+                 	var id;
                      	console.log("success");
                      	response.write('<!DOCTYPE html> <html> <head> <link rel="stylesheet" type="text/css" href="Groceries.css" /></head><body>');
                      	response.write('<div id="groceriesdiv">')
