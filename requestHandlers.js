@@ -445,7 +445,7 @@ var id;
 	response.write('<form id="view" onsubmit = "return deletediv();"action="/viewgroceries" method ="get"><input type="submit" value="View All"</input></form>');
 	response.write('</div>');
 	response.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>')
-	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}else if(index ===1){b =$(this).html()}else if(index ===2){c=$(this).html()}else if(index===3){d=$(this).html()}else if(index===4){e=$(this).html()}else if(index===5){f=$(this).html()}else if(index===6){g=$(this).html()}}); $(row).html("<input type=text id=itemname></input><input type=text id=datepurchased class="{validate:{required:true, date:true}}"></input><input type=text id=taxable></input><input type=text id=paidfor></input><input type=text id=purchasername></input><input type=text id=shared></input><input type=text id=price></input><button class=doneediting>Done</button>"); $("#itemname").val(a);$("#datepurchased").val(b);$("#taxable").val(c); $("#paidfor").val(d); $("#purchasername").val(e); $("#shared").val(f); $("#price").val(g);$(".doneediting").val(cid); $(".doneediting").click(function(e){$.ajax({type:"POST", url: "/editgroceries", beforeSend:function(){if ($("#purchasername").val()==="") {$("#error").html("Purchaser name is null");return false;}if($("#itemname").val()===""){$("#error").html("Item name is null"); return false;}if($("#datepurchased").val()===""){$("#error").html("Date Purchased is null"); return false;}if($("#taxable").val()===""){$("#error").html("Taxable field is null"); return false;}if(!(($("#taxable").val()==="yes")|| ($("#taxable").val()==="Yes")|| ($("#taxable").val()==="No")|| ($("#taxable").val()==="no"))){$("#error").html("Please enter a yes or no in the taxable field"); return false;} if(!(($("#paidfor").val()==="yes")|| ($("#paidfor").val()==="Yes")|| ($("#paidfor").val()==="No")|| ($("#paidfor").val()==="no"))){$("#error").html("Please enter a yes or no in the paid for field"); return false;}if(!(($("#purchasername").val()==="Sacha")|| ($("#purchasername").val()==="Andy")|| ($("#purchasername").val()==="Alex")|| ($("#purchasername").val()==="Kirsten"))){$("#error").html("Unrecognized Resident Name"); return false;}if(!(($("#shared").val()==="Unknown")|| ($("#shared").val()==="Not Shared")|| ($("#shared").val()==="Shared"))){$("#error").html("Invalid input for field Shared"); return false;}if($("#paidfor").val()===""){$("#error").html("Paid for value is null"); return false;}if($("#shared").val()===""){$("#error").html("Shared value is null"); return false;}if($("#price").val()===""){$("#error").html("Price column is null"); return false;}}, data:{id:e.currentTarget.value, itemname: $("#itemname").val(), datepurchased:$("#datepurchased").val(), taxable:$("#taxable").val(), paidfor:$("#paidfor").val(), purchasername:$("#purchasername").val(), shared:$("#shared").val(), price:$("#price").val()}, success: function(){location.reload();}})});}); function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
+	response.write('<script type="text/javascript"> $(".remove").click(function(e){$.ajax({type:"POST", url: "/removegroceries", data:{id:e.currentTarget.value}, success: function(){var cid = e.currentTarget.value; var row = "#row" + cid; $(row).hide("slow");}});});$(".edit").click(function(e){var a, b, c, d, e, f, g, h; var cid = e.currentTarget.value; var row = "#row" + cid; $(row+" td").each(function(index) {if(index ===0){a = $(this).html()}else if(index ===1){b =$(this).html()}else if(index ===2){c=$(this).html()}else if(index===3){d=$(this).html()}else if(index===4){e=$(this).html()}else if(index===5){f=$(this).html()}else if(index===6){g=$(this).html()}}); $(row).html("<input type=text id=itemname></input><input type=text id=datepurchased "></input><input type=text id=taxable></input><input type=text id=paidfor></input><input type=text id=purchasername></input><input type=text id=shared></input><input type=text id=price></input><button class=doneediting>Done</button>"); $("#itemname").val(a);$("#datepurchased").val(b);$("#taxable").val(c); $("#paidfor").val(d); $("#purchasername").val(e); $("#shared").val(f); $("#price").val(g);$(".doneediting").val(cid); $(".doneediting").click(function(e){$.ajax({type:"POST", url: "/editgroceries", beforeSend:function(){if ($("#purchasername").val()==="") {$("#error").html("Purchaser name is null");return false;}if($("#itemname").val()===""){$("#error").html("Item name is null"); return false;}if($("#datepurchased").val()===""){$("#error").html("Date Purchased is null"); return false;}if($("#taxable").val()===""){$("#error").html("Taxable field is null"); return false;}if(!(($("#taxable").val()==="yes")|| ($("#taxable").val()==="Yes")|| ($("#taxable").val()==="No")|| ($("#taxable").val()==="no"))){$("#error").html("Please enter a yes or no in the taxable field"); return false;} if(!(($("#paidfor").val()==="yes")|| ($("#paidfor").val()==="Yes")|| ($("#paidfor").val()==="No")|| ($("#paidfor").val()==="no"))){$("#error").html("Please enter a yes or no in the paid for field"); return false;}if(!(($("#purchasername").val()==="Sacha")|| ($("#purchasername").val()==="Andy")|| ($("#purchasername").val()==="Alex")|| ($("#purchasername").val()==="Kirsten"))){$("#error").html("Unrecognized Resident Name"); return false;}if(!(($("#shared").val()==="Unknown")|| ($("#shared").val()==="Not Shared")|| ($("#shared").val()==="Shared"))){$("#error").html("Invalid input for field Shared"); return false;}if($("#paidfor").val()===""){$("#error").html("Paid for value is null"); return false;}if($("#shared").val()===""){$("#error").html("Shared value is null"); return false;}if($("#price").val()===""){$("#error").html("Price column is null"); return false;}}, data:{id:e.currentTarget.value, itemname: $("#itemname").val(), datepurchased:$("#datepurchased").val(), taxable:$("#taxable").val(), paidfor:$("#paidfor").val(), purchasername:$("#purchasername").val(), shared:$("#shared").val(), price:$("#price").val()}, success: function(){location.reload();}})});}); function deletediv() { var d = document.getElementById("groceries"); d.parentNode.removeChild(d);} </script>');
 	response.write('</body></html>');
 	}
 	response.end();
@@ -677,7 +677,7 @@ console.log('connecting to database');
 function editgroceries(response, request)
 {
     console.log("Request handler for /editgroceries was called");
-      var nameofitem, purchasedate, tax, paid, purchaser, shared, cost;
+      var id, nameofitem, purchasedate, tax, paid, purchaser, shared, cost;
 
       var qs = require('querystring');
 
@@ -688,6 +688,7 @@ function editgroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
+      	var id = post.id;
       	nameofitem = post.itemname ;
       	purchasedate = post.datepurchased;
       	tax = post.taxable;
@@ -695,7 +696,7 @@ function editgroceries(response, request)
       	purchaser=post.purchasername;
       	shared = post.shared;
       	cost = post.price;
-
+          console.log(id);
           console.log(nameofitem);
           console.log(purchasedate);
           console.log(tax);
@@ -704,7 +705,7 @@ function editgroceries(response, request)
           console.log(shared);
           console.log(cost);
 
-       /*
+        /*
       var pg = require('pg');
       var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
@@ -718,12 +719,12 @@ function editgroceries(response, request)
       	else {
       	console.log(itemid);
       	console.log('connection success');
-      	prepDelete = {
-      	name: 'delete item',
-      	text:'delete from groceries where myid=$1',
+      	prepEdit = {
+      	name: 'update item',
+      	text:'update groceries set nameofitem=$1 and datepurchased=$2 and taxable=$3 and paidfor=$4 and purchasername=$5 and shared=$6 and price=$7 where myid=$8',
       	values: [itemid]};
 
-      	client.query(prepDelete, function(err, result) {
+      	client.query(prepEdit, function(err, result) {
       	if(err) {
       	console.log(err);
       	console.log('Error');
@@ -742,10 +743,11 @@ function editgroceries(response, request)
       }
       });
 
-        */
+
 
                    response.end();
       });
+      */
       }else {
       	response.write("There doesn't appear to be anything here");
       	response.end();
