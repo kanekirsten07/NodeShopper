@@ -717,6 +717,35 @@ function editgroceries(response, request)
       	text:'update groceries set nameofitem=$1 where myid=$2',
       	values: [ itemsname, id]};
 
+      	prepEdit2 = {
+      	name: 'update datepurchased',
+      	text:'update groceries set datepurchased=$1 where myid=$2' ,
+      	values:[purchasedate, id]
+      	};
+
+      	prepEdit3 ={
+      	name:'update taxable',
+      	text:'update groceries set taxable=$1 where myid=$2' ,
+      	values:[tax, id]
+      	};
+
+      	prepEdit4={
+      	name:'update paid',
+      	text:'update groceries set paidfor=$1 where myid=$2',
+      	values:[paid, id]
+      	};
+
+        prepEdit5={
+        name:'update purchasername',
+        text:'update groceries set purchasername=$1 where myid=$2',
+        values:[purchaser, id]
+        };
+
+        prepEdit6={
+        name:'update paid',
+        text:'update groceries set price=$1 where myid=$2',
+        values:[cost, id]
+        };
       	client.query(prepEdit, function(err, result) {
       	if(err) {
       	console.log(err);
@@ -733,6 +762,86 @@ function editgroceries(response, request)
 
 
       });
+      client.query(prepEdit2, function(err, result) {
+            	if(err) {
+            	console.log(err);
+            	console.log('Error');
+
+
+
+            	}else
+            	{
+            	console.log("success");
+
+            	}
+
+
+
+            });
+      client.query(prepEdit3, function(err, result) {
+            	if(err) {
+            	console.log(err);
+            	console.log('Error');
+
+
+
+            	}else
+            	{
+            	console.log("success");
+
+            	}
+
+
+
+            });
+       client.query(prepEdit4, function(err, result) {
+             	if(err) {
+             	console.log(err);
+             	console.log('Error');
+
+
+
+             	}else
+             	{
+             	console.log("success");
+
+             	}
+
+
+
+             });
+       client.query(prepEdit5, function(err, result) {
+             	if(err) {
+             	console.log(err);
+             	console.log('Error');
+
+
+
+             	}else
+             	{
+             	console.log("success");
+
+             	}
+
+
+
+             });
+       client.query(prepEdit6, function(err, result) {
+             	if(err) {
+             	console.log(err);
+             	console.log('Error');
+
+
+
+             	}else
+             	{
+             	console.log("success");
+
+             	}
+
+
+
+             });
       }
       });
 
