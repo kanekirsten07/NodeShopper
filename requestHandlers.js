@@ -677,7 +677,7 @@ console.log('connecting to database');
 function editgroceries(response, request)
 {
     console.log("Request handler for /editgroceries was called");
-      var id, nameofitem, purchasedate, tax, paid, purchaser, shared, cost;
+      var id, itemsname, purchasedate, tax, paid, purchaser, shared, cost;
 
       var qs = require('querystring');
 
@@ -689,21 +689,14 @@ function editgroceries(response, request)
       request.on('end', function() {
       	post = qs.parse(chunk);
       	 id = post.id;
-      	nameofitem = post.itemname ;
+      	itemsname = post.itemname ;
       	purchasedate = post.datepurchased;
       	tax = post.taxable;
       	paid = post.paidfor;
       	purchaser=post.purchasername;
       	shared = post.shared;
       	cost = post.price;
-          console.log(id);
-          console.log(nameofitem);
-          console.log(purchasedate);
-          console.log(tax);
-          console.log(paid);
-          console.log(purchaser);
-          console.log(shared);
-          console.log(cost);
+
 
 
       var pg = require('pg');
@@ -722,7 +715,7 @@ function editgroceries(response, request)
       	prepEdit = {
       	name: 'update item',
       	text:'update groceries set nameofitem=$1 and datepurchased=$2 and taxable=$3 and paidfor=$4 and purchasername=$5 and shared=$6 and price=$7 where myid=$8',
-      	values: [ nameofitem, purchasedate, tax, paid, purchaser, shared, cost, id]};
+      	values: [ itemsname, purchasedate, tax, paid, purchaser, shared, cost, id]};
 
       	client.query(prepEdit, function(err, result) {
       	if(err) {
@@ -730,7 +723,7 @@ function editgroceries(response, request)
       	console.log('Error');
 
 
-                     response.end();
+
       	}else
       	{
       	console.log("success");
