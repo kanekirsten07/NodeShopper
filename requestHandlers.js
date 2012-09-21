@@ -742,7 +742,7 @@ function editgroceries(response, request)
         };
 
         prepEdit6={
-        name:'update paid',
+        name:'update price',
         text:'update groceries set price=$1 where myid=$2',
         values:[cost, id]
         };
