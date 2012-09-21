@@ -717,7 +717,7 @@ function editgroceries(response, request)
       	console.log('connection error');
       	}
       	else {
-      	console.log(itemid);
+
       	console.log('connection success');
       	prepEdit = {
       	name: 'update item',
