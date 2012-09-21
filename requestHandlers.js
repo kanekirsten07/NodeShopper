@@ -705,7 +705,7 @@ function editgroceries(response, request)
         }
 
         var today = new Date();
-            var check_me = new Date(datepurchased)
+            var check_me = new Date(purchasedate)
             if(!(check_me <= today)) {
             response.writeHeader(500, {"Content-type": "text/plain"});
             }
