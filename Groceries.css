@@ -5,6 +5,11 @@ background-image:url('sakura.jpg');
 
 }
 
+head {
+
+background-image:url('http://i.imgur.com/BTIQa.jpg');
+}
+
 #view, #add, #firstpassword, #confirmpassword {
 	display:inline;
 }
@@ -15,6 +20,11 @@ td, tr {
 	border: 1px solid black;
 	padding: 0;
 	text-align:center;
+}
+
+#shoppinglistcontents input{
+display:block;
+align:center;
 }
 
 #register input
