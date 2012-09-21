@@ -714,8 +714,8 @@ function editgroceries(response, request)
       	console.log('connection success');
       	prepEdit = {
       	name: 'update item',
-      	text:'update groceries set nameofitem=$1 and datepurchased=$2 and taxable=$3 and paidfor=$4 and purchasername=$5 and shared=$6 and price=$7 where myid=$8',
-      	values: [ itemsname, purchasedate, tax, paid, purchaser, shared, cost, id]};
+      	text:'update groceries set nameofitem=$1 where myid=$2',
+      	values: [ itemsname, id]};
 
       	client.query(prepEdit, function(err, result) {
       	if(err) {
