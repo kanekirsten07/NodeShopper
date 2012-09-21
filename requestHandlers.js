@@ -688,7 +688,7 @@ function editgroceries(response, request)
       });
       request.on('end', function() {
       	post = qs.parse(chunk);
-      	var id = post.id;
+      	 id = post.id;
       	nameofitem = post.itemname ;
       	purchasedate = post.datepurchased;
       	tax = post.taxable;
@@ -705,7 +705,7 @@ function editgroceries(response, request)
           console.log(shared);
           console.log(cost);
 
-        /*
+
       var pg = require('pg');
       var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
 
@@ -722,7 +722,7 @@ function editgroceries(response, request)
       	prepEdit = {
       	name: 'update item',
       	text:'update groceries set nameofitem=$1 and datepurchased=$2 and taxable=$3 and paidfor=$4 and purchasername=$5 and shared=$6 and price=$7 where myid=$8',
-      	values: [itemid]};
+      	values: [ nameofitem, purchasedate, tax, paid, purchaser, shared, cost, id]};
 
       	client.query(prepEdit, function(err, result) {
       	if(err) {
@@ -743,7 +743,7 @@ function editgroceries(response, request)
       }
       });
 
-        */
+
 
                    response.end();
       });
