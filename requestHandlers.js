@@ -696,8 +696,13 @@ function editgroceries(response, request)
       	purchaser=post.purchasername;
       	shared = post.shared;
       	cost = post.price;
+       var str = price.split(".");
+           var str1 = str[1];
+        if(str1.length >2)
+        {
+        response.writeHeader(500, {"Content-type":"text/plain"});
 
-
+        }
 
       var pg = require('pg');
       var connectionString = process.env.DATABASE_URL || "postgres://eoppbrtqkixrmq:VQLEl3CHN5kdgy01vGUubutlj0@ec2-107-22-168-239.compute-1.amazonaws.com:5432/df1ejsqphkaeek";
