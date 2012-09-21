@@ -696,7 +696,7 @@ function editgroceries(response, request)
       	purchaser=post.purchasername;
       	shared = post.shared;
       	cost = post.price;
-       var str = price.split(".");
+       var str = cost.split(".");
            var str1 = str[1];
         if(str1.length >2)
         {
