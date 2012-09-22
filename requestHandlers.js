@@ -700,12 +700,13 @@ function editgroceries(response, request)
       	cost = post.price;
        var str = cost.split(".");
            var str1 = str[1];
+           if (typeof(uname)!= 'undefined'){}
         if(str1.length >2)
         {
         response.writeHeader(500, {"Content-type":"text/plain"});
 
         }
-
+            }
         var today = new Date();
             var check_me = new Date(purchasedate)
             if(!(check_me <= today)) {
